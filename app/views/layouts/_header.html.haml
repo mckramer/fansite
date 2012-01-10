@@ -1,0 +1,17 @@
+.fill
+  .container
+    %a.brand{ href: "#"}
+      = t :site_title
+    %ul.nav
+      %li.active
+        %a{ href: "#" }
+          = t "nav.home"
+      %li
+        %a{ href: "#about" }
+          = t "nav.about"
+      %li
+        %a{ href: "#contact" }
+          = t "nav.contact"
+    .pull-right{ style: "margin-top: 7px;" }
+      %a{ href: "/auth/developer" } 
+        %img{ src: "https://encrypted-tbn1.google.com/images?q=tbn:ANd9GcQe6nuK8xFI1ky1TtxtpYvvbXPpKviOTk-HeT5upCh1qtEbDi_3" }

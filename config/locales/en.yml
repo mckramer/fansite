@@ -1,0 +1,11 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  site_title: "Developing goodness"
+  site_tagline: "The official unofficial fan site"
+  nav:
+    title: "Here we go"
+    home: "Home"
+    about: "About"
+    contact: "Contact"
