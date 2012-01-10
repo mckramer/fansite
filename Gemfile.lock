@@ -118,7 +118,6 @@ DEPENDENCIES
   coffee-script
   haml
   jquery-rails
-  omniauth
   omniauth-twitter
   rails (= 3.1.0.rc3)
   sass-rails (~> 3.1.0.rc)
