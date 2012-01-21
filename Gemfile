@@ -27,6 +27,11 @@ gem 'jquery-rails'
 # Authentication
 #gem 'sorcery'
 gem 'omniauth-twitter'
+# Authorization
+gem 'cancan'
+
+# APIs
+gem 'twitter'
 
 group :test do
   # Pretty printed test output

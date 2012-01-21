@@ -1,0 +1,17 @@
+.row
+  .span5 
+    %h2.brand= t 'site_title'
+    %p= t 'site_tagline'
+    %p= link_to '@alanaleeders', 'http://twitter.com/alanaleeders'
+    %p= link_to 'alanaleeders.com', 'http://www.alanaleeders.com'
+    %p= link_to 'alanaleeders.org', 'http://www.alanaleeders.org'
+  .span4
+    %nav= render 'layouts/nav'    
+  .span5
+    %p Now you too can be a fan.
+    %p
+      &rarr;
+      = link_to 'Top of page', '#page-top'
+    %p 
+      The background image on the homepage courtesy of 
+      = link_to 'Killer Kun', 'http://www.killerkun.com/2011/03/alana-lee-gives-me-butterflies.html'

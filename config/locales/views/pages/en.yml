@@ -1,0 +1,11 @@
+en:
+  pages:
+    home:
+      title: 'Home'
+      subtitle: 'Where real fans go to be fans'
+    about:
+      title: 'About'
+      subtitle: 'Who we be?'
+    contact:
+      title: 'Contact'
+      subtitle: 'Message us'

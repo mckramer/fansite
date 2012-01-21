@@ -1,0 +1,5 @@
+- content_for :page_title, t('.title')
+- content_for :page_tagline, t('.subtitle')
+= render 'form'
+.links.well
+  = link_to 'Back', events_path, class: 'btn'

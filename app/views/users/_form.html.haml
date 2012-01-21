@@ -1,0 +1,52 @@
+= form_for(@user) do |f|
+  - if @user.errors.any?
+    #error_explanation.alert-message.block-message.error
+      %h2
+        = pluralize(@user.errors.count, "error")
+        prevented this from being saved
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+  .field.clearfix
+    = f.label :username
+    .input
+      .input-prepend
+        %span.add-on @
+        = f.text_field :username, placeholder: "username"
+      %span.help-block Choose a unique username. Required.
+  .field.clearfix
+    = f.label :name
+    .input
+      = f.text_field :name
+      %span.help-block Your name. Required.
+  .field.clearfix
+    = f.label :email
+    .input
+      = f.email_field :email
+      %span.help-block Optionally provide an email address.
+  .field.clearfix
+    = f.label :gender
+    .input
+      = f.select :gender, @gender_options
+      %span.help-block Optionally specify your gender
+  #custom-gender.field.clearfix{ :style => "display:none" }
+    .input
+      = f.text_field :gender, :disabled => true
+      %span.help-block Specify your gender
+  .field.clearfix
+    = f.label :dob, t('model.user.dob.display')
+    .input.date
+      = f.date_select :dob, prompt: true
+      %span.help-block Optionally provide your birth date
+  .field.clearfix
+    = label_tag 'Language', 'language'
+    .input
+      = select_tag "language", options_for_select(@locales)
+      %span.help-block Optionally provide your birth date
+  .field.clearfix
+    = label_tag 'Time zone', 'time_zone'
+    .input
+      = select_tag 'time_zone', options_for_select(@time_zones)
+      %span.help-block Optionally provide your birth date
+  .actions.well
+    = f.submit 'Save profile', class: 'btn large primary'

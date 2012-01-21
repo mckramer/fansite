@@ -1,0 +1,24 @@
+- content_for :page_title, t('.title')
+- content_for :page_tagline, t('.subtitle')
+- content_for :page_nav do
+  %h3= t('.search_options')
+  %ul.unstyled
+    %li 
+      = t('.filter.type')
+      %ul
+        - Medium.form_options.each do |type|
+          %li= link_to type.titleize, media_type_path(type)
+    %li 
+      = t('.filter.recorded_on')
+      %ul
+        - 3.times do |index|
+          %li= link_to @current_year-index, "#{media_path}?year_recorded=#{@current_year-index}"
+    %li= t('.filter.released_on')
+- unless @media.empty?
+  %ul.media-grid
+    - @media.each do |medium|
+      %li= thumbnail_for(medium)
+- else
+  %p= t '.no_results'
+.links.well
+  = link_to 'Create new medium', new_medium_path, class: 'btn'

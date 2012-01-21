@@ -1,0 +1,68 @@
+﻿- content_for :page_title, "Profile for #{@user.display}"
+- content_for :page_tagline, "Learn something new"
+- if notice
+  #notice.alert-message.success= notice
+.profile_picture{style: "float:right; margin-right: 15px; margin-top: 15px;"}= gravatar_for @user, 100
+%h2 Quick hits
+%p Here's the information in the profile
+%table
+  %tbody
+    %tr
+      %th Name
+      %td= @user.name
+    %tr
+      %th= t 'model.user.gender.display'
+      %td
+        - if @user.gender.blank? || @user.gender == 'Unspecified'
+          %span.stand-back= t("model.user.gender.unspecified.#{('a'..'e').to_a.sample}")
+        - else
+          = @user.gender
+    %tr
+      %th= t 'model.user.age.display'
+      %td
+        - if @user.dob.blank?
+          %span.stand-back= t("model.user.age.unspecified.#{('a'..'e').to_a.sample}")
+        - else
+          = @user.age
+    %tr
+      %th Location
+      %td 
+        %span.stand-back 
+          The interhighway.
+          %a{ :href => "#", "data-controls-modal" => "modal-for-youtube", "data-backdrop" => "static"} &rarr;
+    %tr
+      %th Bio
+      %td
+        .stand-back Fantastic. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tellus diam, venenatis ac gravida id, varius et mi. Vestibulum est ante, imperdiet ut vulputate accumsan, blandit vitae orci.
+    %tr
+      %th Member since
+      %td= l @user.created_at.to_date, format: :long
+    %tr
+      %th Last updated profile
+      %td= l @user.updated_at.to_date, format: :long
+    %tr
+      %th Last activity
+      %td= l @user.updated_at.to_date, format: :long
+%h2 Authentications
+%table.authentications
+  %thead
+    %tr
+      %th
+      %th Provider
+      %th Linked on
+  %tbody
+    - @user.authentications.each do |auth|
+      %tr
+        %td= authentication_image_for auth
+        %td= auth.provider.titleize
+        %td= l auth.created_at.to_date, format: :long
+
+.links.actions
+  .btn.large= link_to 'Edit your profile', edit_user_path(@user)
+#modal-for-youtube.modal.hide.fademodal-from-dom{:style=>'display:none;'}
+  .modal-header
+    %a.close{ href: "#" } ×
+    %h3 The interhighway
+  .modal-body
+    %div{ style: "margin-left: 55px;"}
+      <iframe width="420" height="315" src="http://www.youtube.com/embed/QAJZKKIDt2o" frameborder="0" allowfullscreen></iframe>

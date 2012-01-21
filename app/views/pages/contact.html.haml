@@ -1,0 +1,16 @@
+- content_for :page_title, t('nav.contact')
+- content_for :page_tagline, "Talk to us"
+%h2 Questions or comments?
+%p 
+  We are always happy and excited to field and questions or comments you may have at
+  = mail_to 'feedback@site.com'
+%h2 Feature requests?
+%p This site is for you and supposed to be designed for you.  If you have any ideas or requests on how to improve the site, we'd love to hear them!
+%p 
+  Drop us a line at 
+  = mail_to 'features@site.com'
+%h2 Other feedback?
+%p 
+  You can always feel free to contact us at 
+  = mail_to 'contact@site.com'
+  

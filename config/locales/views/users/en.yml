@@ -1,0 +1,11 @@
+en:
+  users:
+    index:
+      title: "Leeders"
+      subtitle: "Check out the Leeders"
+    show:
+      title: "It is this person"
+      subtitle: "Who do we have here?"
+    edit:
+      title: "Update profile"
+      subtitle: "Got something to share?"

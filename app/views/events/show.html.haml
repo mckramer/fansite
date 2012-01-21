@@ -1,0 +1,20 @@
+- content_for :page_title, t('.title')
+- content_for :page_tagline, t('.subtitle')
+%p
+  %b Name:
+  = @event.name
+%p
+  %b Teaser:
+  = @event.teaser
+%p
+  %b Description:
+  = @event.description
+%p
+  %b Location:
+  = @event.location
+%p
+  %b Category:
+  = @event.category
+.links.well
+  = link_to 'Edit', edit_event_path(@event), class: 'btn'
+  = link_to 'Back', events_path, class: 'btn'

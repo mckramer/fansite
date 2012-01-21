@@ -1,0 +1,9 @@
+- content_for :page_title, t('.title')
+- content_for :page_tagline, t('.subtitle')
+.posts
+  - if @posts.empty?
+    %p= t '.no_results'
+  - else
+    = render @posts
+.links.well
+  = link_to 'New Post', new_post_path, class: "btn"

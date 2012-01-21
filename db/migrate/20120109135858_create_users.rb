@@ -8,7 +8,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :gender
 
       t.timestamps
-      
+    end
+    
+    change_table :users do |t|
       t.index :email, :unique => true
       t.index :username, :unique => true
     end

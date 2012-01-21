@@ -1,0 +1,41 @@
+= form_for(@medium) do |f|
+  - if @medium.errors.any?
+    #error_explanation.alert-message.block-message.error
+      %h2
+        = pluralize(@medium.errors.count, "error")
+        prohibited this medium from being saved
+      %ul
+        - @medium.errors.full_messages.each do |msg|
+          %li= msg
+  %fieldset
+    %legend
+    .field.clearfix
+      = f.label :name
+      .input= f.text_field :name
+    .field.clearfix
+      = f.label :description
+      .input= f.text_area :description
+    .field.clearfix
+      = f.label :teaser
+      .input= f.text_area :teaser
+    .field.clearfix
+      = f.label :form
+      .input= f.select :form, Medium.form_options, :prompt => true
+    .field.clearfix
+      = f.label :media_provider_id
+      .input= collection_select :medium, :media_provider_id, @providers, :id, :name, :prompt => true
+    .field.clearfix
+      = f.label :provider_media_id
+      .input= f.text_field :provider_media_id
+    .field.clearfix
+      = f.label :source_url
+      .input= f.text_field :source_url
+    .field.clearfix
+      = f.label :thumbnail_url
+      .input= f.text_field :thumbnail_url
+    .field.clearfix
+      = f.label :content_url
+      .input= f.text_field :content_url
+  .actions.well
+    = f.submit class: 'btn large primary'
+    = link_to 'Cancel', media_path, class: 'btn large'

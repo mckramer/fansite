@@ -1,0 +1,18 @@
+%h1 Listing users
+
+%table
+  %thead
+    %tr
+      %th Username
+      %th Name
+      %th Joined
+      %th Authentication
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.display, user
+        %td= user.name
+        %td= l user.created_at.to_date, :format => :long
+        %td= link_to image_tag("http://github.com/intridea/authbuttons/raw/master/png/twitter_32.png"), "http://twitter.com/#{user.username}" unless user.authentications.exists?(:provider => 'twitter')
+.links
+  = link_to 'New User', new_user_path

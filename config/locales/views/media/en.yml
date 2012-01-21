@@ -1,0 +1,31 @@
+en:
+  media:
+    types:
+      music: "music"
+      image: "image"
+      video: "video"
+    buttons:
+      view:
+        music: "Jam to the music"
+        image: "View the image"
+        video: "Watch the video"
+    index:
+      title: "The media"
+      subtitle: "Come and get 'em"
+      filter:
+        type: "Filter by type?"
+        recorded_on: "Filter by year recorded"
+        released_on: "Filter by year released"
+      no_results: "Oh, boy. This is embarassing. There are no results. Try searching for media with broader parameters."
+      search_options: "Search options"
+    show:
+      title: 
+      subtitle:
+      no_analysis: "Sorry, no analysis for this medium has been written yet."
+      no_captions: "Sorry, the lyrics have not been added for this medium."
+    new:
+      title: "New medium"
+      subtitle: "Sharing something?"
+    edit:
+      title: "Edit medium"
+      subtitle: "Best to get it right"

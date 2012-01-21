@@ -1,0 +1,14 @@
+en:
+  events:
+    index:
+      title: "Events, concerts, and parties"
+      subtitle: "Doing big things"
+    show:
+      title: "Event"
+      subtitle: "Check this out"
+    new:
+      title: "New event"
+      subtitle: "What we going to be doing?"
+    edit:
+      title: "Edit event"
+      subtitle: "Fix the errors"

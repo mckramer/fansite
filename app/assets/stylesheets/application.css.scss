@@ -4,5 +4,9 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
 */
-@import "bootstrap.css.scss"
-@import "bootstrap-custom.css.scss"
+@import "bootstrap.css.scss";
+@import "bootstrap-custom.css.scss";
+
+img.avatar {
+  border-radius:5px;
+}

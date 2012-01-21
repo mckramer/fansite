@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    models:
+      media: "Media"
+    attributes:
+      media:
+        name: "Name"
+        teaser: "Teaser"
+        description: "Description"
+        analysis: "Analysis"

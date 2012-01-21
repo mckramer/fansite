@@ -1,0 +1,75 @@
+- content_for :page_title, @medium.name
+- content_for :page_tagline, @medium.form.titleize
+.media
+  %div{ class: "medium #{@medium.form}" }
+    - if @medium.form == 'image'
+      %img{ src: source_url_for(@medium) }
+    - elsif @medium.provider.name == 'YouTube'
+      %iframe.youtube-player{ type: "text/html", width: "630", height: "385", src: "http://www.youtube.com/embed/#{@medium.provider_media_id}?wmode=transparent", frameborder:"0"}
+  %p 
+    Courtesy of 
+    = link_to @medium.provider.name, @medium.provider.homepage_url
+    Link to content:
+    = link_to @medium.provider.name, content_url_for(@medium)
+%ul.tabs{ "data-tabs" => "tabs" }
+  %li.active= link_to 'Description', '#description'
+  %li= link_to 'Lyrics', '#captions'
+  %li= link_to 'Analysis', '#analysis'
+#media-tab-content.tab-content
+  #description.tab-pane.active
+    .description= @medium.description
+    %div{:style=>"margin-top:20px;"}
+    %h4 Other information
+    %table.info.zebra-striped
+      %tbody
+        %tr
+          %th Recorded on
+          %td= @medium.recorded_on || "unknown"
+        %tr
+          %th Released on
+          %td= @medium.released_on || "unknown"
+  #captions.tab-pane
+    - if @medium.captions.blank?
+      Sorry, the lyrics have not been added for this #{@medium.form}.
+    - else
+      %pre= @medium.captions
+  #analysis.tab-pane
+    - if @medium.analysis.blank?
+      Sorry, no analysis for this #{@medium.form} has been written yet.
+    - else
+      @medium.analysis
+%hr
+%h2 Comments
+.comments
+  %p Got something to say? Join the conversation below.
+  .comment
+    %h3 I love it
+    %p I wish I could have come up with something better to say here. This is lame.
+    .author
+      %span.user= link_to '@user', '/profile/user'
+      posted on
+      %span.date Jan 1st
+      at
+      %span.time 4:00pm
+  .comment
+    %h3 What a quality media thing
+    %p I wish I could have come up with something better to say here. This is lame.
+    .author
+      %span.user= link_to '@user2', '/profile/user2'
+      posted on
+      %span.date Jan 1st
+      at
+      %span.time 4:00pm
+  - 1.times do |comment|
+    .comment
+      %h3 This is a very good comment
+      %p I wish I could have come up with something better to say here. This is lame.
+      .author
+        %span.user= link_to '@user', '/profile/user'
+        posted on
+        %span.date Jan 1st
+        at
+        %span.time 4:00pm
+.well
+  = link_to 'Return to all media', media_path, :class => "btn"
+  = link_to "Return to only #{@medium.form} media", media_type_path(@medium.form), :class => "btn"

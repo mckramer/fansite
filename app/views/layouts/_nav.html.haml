@@ -1,0 +1,20 @@
+%h3= t "nav.title"
+%ul.unstyled
+  %li
+    = link_to t("nav.home"), root_path
+    %ul
+      %li= link_to t("nav.about"), controller: "pages", action: "about"
+      %li= link_to t("nav.contact"), controller: "pages", action: "contact"
+  %li= link_to 'Social', '/social'
+  %li
+    = link_to 'Updates', updates_path
+    %ul
+      %li= link_to 'Posts', '/updates/posts'
+      %li= link_to 'Concerts', '/updates/concerts'
+      %li= link_to 'Events', '/updates/events'
+  %li
+    = link_to 'Media', '/media'
+    %ul
+      %li= link_to 'Music', '/media/music'
+      %li= link_to 'Pictures', '/media/pictures'
+      %li= link_to 'Videos', '/media/videos'

@@ -1,0 +1,15 @@
+en:
+  posts:
+    index:
+      title: "Check these posts out"
+      subtitle: "You never know what you will find"
+      no_results: "So, sorry. Looks like there aren't any posts for the criteria you selected. Try broadening your search."
+    show:
+      title: "Showing post"
+      subtitle: "Read 'em and weep"
+    new:
+      title: "New post"
+      subtitle: "Got something to share?"
+    edit:
+      title: "Edit post"
+      subtitle: "Strive for perfection"

@@ -5,6 +5,9 @@ class CreateBlacklists < ActiveRecord::Migration
 
       t.timestamps
       
+    end
+    
+    change_table :blacklists do |t|
       t.index :username, :unique => true
     end
   end
