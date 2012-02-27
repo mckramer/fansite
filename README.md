@@ -1,5 +1,6 @@
 == Fansite
 
+Example of a fansite.  Attempting to provide a base template that can be used for a variety of people and uses by only editing the css, images, and yml files.  It is i18n-compatiable.
 
 == Description of Contents
 

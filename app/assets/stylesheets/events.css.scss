@@ -5,3 +5,93 @@
 body.events {
   // Place scoped styles here
 }
+
+table.event-calendar {
+  border: 1px solid #ccc;
+  thead, tfoot {
+    th, td {
+      text-align: center;
+      width: 14%;
+      overflow: hidden;
+    }
+  }
+  thead.month {
+    .next, .previous {
+    
+    }
+    .title {
+      font-size: 140%;
+    }
+  }
+  thead.days-of-the-week {
+    .weekend {
+      width: 15%;
+    }
+    td, th {
+      &:hover {
+        cursor: default;
+      }
+    }
+    
+  }
+  tbody {
+    tr {
+      height: 110px;
+    }
+    td {
+      border: 1px solid #ccc;
+      padding: 0px;
+    }
+    .day {
+      background-color: $main-color;
+      border-bottom: 1px solid #ccc;
+      padding: 2px 4px;
+      text-align: right;
+    }
+    .events {
+      font-family: ArchitectsDaughter;
+      font-size: 90%;
+      .event {
+        padding: 2px 3px;
+      }
+      .allday {
+        background-color: #77DD77;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        font-size: 90%;
+        margin: 1px 2px;
+      }
+      .concert {
+        color: #800080;
+      }
+      .television, .movie {
+        color: #006600;
+      }
+    }
+    .weekend {
+      .day {
+        background-color: darken($main-color, 15%);
+      }
+    }
+    .weekday {
+    
+    }
+    .today {
+      background-color: lighten($secondary-color, 20%);
+      .day {
+        background-color: $secondary-color;
+        font-weight: bold;
+      }
+    }
+    a, a:link, a:visited {
+      color: inherit;
+      display: block;
+    }
+    a:hover {
+      
+    }
+  }
+  tfoot {
+  
+  }
+}

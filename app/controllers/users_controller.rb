@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+    setup_form_options
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,9 +43,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-    @gender_options = User.gender_options
-    @time_zones = ActiveSupport::TimeZone.all
-    @locales = I18n.available_locales
+    setup_form_options
   end
 
   # POST /users
@@ -57,7 +56,10 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { render action: "new" }
+        format.html { 
+          setup_form_options
+          render action: "new" 
+        }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -73,7 +75,10 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        format.html { 
+          setup_form_options
+          render action: "edit" 
+        }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -89,6 +94,14 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :ok }
     end
+  end
+  
+  private
+  
+  def setup_form_options
+    @gender_options = User::GENDER_OPTIONS
+    @time_zones = ActiveSupport::TimeZone.all.sort
+    @locales = I18n.available_locales
   end
   
 end

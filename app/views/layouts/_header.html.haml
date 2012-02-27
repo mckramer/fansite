@@ -28,6 +28,7 @@
             %li= link_to 'Español', '/?locale=es'
             %li.divider
             %li= link_to 'All locales', '/locales'
+            %li= link_to 'Translation Center', '/translations'
     - if current_user        
       %ul.nav.secondary-nav
         %li.dropdown{ 'data-dropdown' => 'dropdown' }
@@ -42,4 +43,4 @@
             %li= link_to 'Logout', logout_path
     - else
       .pull-right{ style: "margin-top: 7px;" }
-        = link_to image_tag("authentications/sign-in-with-twitter-l.png"), '/auth/twitter'
+        = link_to image_tag("authentications/sign-in-with-twitter-l.png"), '/auth/developer'

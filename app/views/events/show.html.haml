@@ -1,20 +1,25 @@
-- content_for :page_title, t('.title')
+- content_for :page_title, @event.category.humanize
 - content_for :page_tagline, t('.subtitle')
-%p
-  %b Name:
-  = @event.name
-%p
-  %b Teaser:
-  = @event.teaser
-%p
-  %b Description:
-  = @event.description
-%p
-  %b Location:
-  = @event.location
-%p
-  %b Category:
-  = @event.category
+%div{class: "event #{@event.category}"}
+  %h2= @event.name
+  %h3= @event.teaser
+  %p= markdown_to_html(@event.description)
+  %p 
+    %b Time zone:
+    = Time.zone
+  %p
+    %b Starts at:
+    = l @event.start_at
+  %p
+    %b Ends at:
+    = l @event.end_at
+  %p
+    %b Location:
+    = link_to_if can?(:read, @event.location), @event.location.name, @event.location
+  %p
+    %b Category:
+    = @event.category.humanize
 .links.well
-  = link_to 'Edit', edit_event_path(@event), class: 'btn'
+  - if can? :update, @event
+    = link_to 'Edit', edit_event_path(@event), class: 'btn'
   = link_to 'Back', events_path, class: 'btn'

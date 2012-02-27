@@ -14,4 +14,10 @@ module ApplicationHelper
     image_tag "icons/social/64/#{auth.provider}.png"
   end
   
+  def markdown_to_html(string)
+    require 'rdiscount'
+    markdown = RDiscount.new(string)
+    markdown.to_html.html_safe
+  end
+  
 end

@@ -1,24 +1,13 @@
-- content_for :page_title, t('.title')
+﻿- content_for :page_title, t('.title')
 - content_for :page_tagline, t('.subtitle')
-%table
-  %tr
-    %th Name
-    %th Teaser
-    %th Description
-    %th Location
-    %th Category
-    %th
-    %th
-    %th
-  - @events.each do |event|
-    %tr
-      %td= event.name
-      %td= event.teaser
-      %td= event.description
-      %td= event.location
-      %td= event.category
-      %td= link_to 'Show', event
-      %td= link_to 'Edit', edit_event_path(event)
-      %td= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete
-.links.well
-  = link_to 'New Event', new_event_path, class: 'btn'
+= stylesheet_link_tag "event_calendar"
+= javascript_tag "event_calendar"
+- if @event
+  .event.featured= render @event
+  = @event
+%h2 Calendar
+%p Below you can view all the events for the upcoming month
+= render 'calendar/calendar'
+- if can? :create, Event
+  .links.well
+    = link_to 'New Event', new_event_path, class: 'btn'

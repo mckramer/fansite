@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120118192805) do
+ActiveRecord::Schema.define(:version => 20120125180839) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -34,8 +35,23 @@ ActiveRecord::Schema.define(:version => 20120118192805) do
     t.string   "name"
     t.string   "teaser"
     t.text     "description"
-    t.string   "location"
     t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.boolean  "all_day"
+    t.integer  "location_id"
+  end
+
+  add_index "events", ["location_id"], :name => "index_events_on_location_id"
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20120118192805) do
     t.string   "thumbnail_url"
     t.string   "provider_media_id"
     t.string   "form"
+    t.string   "teaser"
   end
 
   create_table "media_providers", :force => true do |t|
@@ -74,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20120118192805) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "teaser"
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
@@ -87,6 +105,9 @@ ActiveRecord::Schema.define(:version => 20120118192805) do
     t.datetime "updated_at"
     t.date     "dob"
     t.datetime "last_login"
+    t.string   "role"
+    t.string   "locale"
+    t.string   "time_zone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

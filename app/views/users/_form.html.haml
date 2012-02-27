@@ -27,7 +27,7 @@
   .field.clearfix
     = f.label :gender
     .input
-      = f.select :gender, @gender_options
+      = f.collection_select :gender, @gender_options, :to_s, :humanize, :include_blank => 'Please select'
       %span.help-block Optionally specify your gender
   #custom-gender.field.clearfix{ :style => "display:none" }
     .input
@@ -39,14 +39,14 @@
       = f.date_select :dob, prompt: true
       %span.help-block Optionally provide your birth date
   .field.clearfix
-    = label_tag 'Language', 'language'
+    = f.label :locale
     .input
-      = select_tag "language", options_for_select(@locales)
-      %span.help-block Optionally provide your birth date
+      = f.select :locale, options_for_select(@locales), prompt: true
+      %span.help-block Optionally provide your language
   .field.clearfix
-    = label_tag 'Time zone', 'time_zone'
+    = f.label :time_zone
     .input
-      = select_tag 'time_zone', options_for_select(@time_zones)
-      %span.help-block Optionally provide your birth date
+      = f.time_zone_select :time_zone, @time_zones, prompt: true
+      %span.help-block Optionally provide your local time zone. Otherwise all times will be displayed as UTC.
   .actions.well
     = f.submit 'Save profile', class: 'btn large primary'

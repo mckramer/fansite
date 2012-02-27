@@ -38,7 +38,7 @@ module MediaHelper
   end
   
   def thumbnail_for(media, height = 150, width = 185)
-    link_to image_tag(thumbnail_url_for(media, height, width)), media, { :class => "thumbnail", :rel => "popover", :data => { :content => media.teaser, "original-title" => media.name, :placement => :below } }
+    link_to image_tag(thumbnail_url_for(media, height, width)), media, { :class => "thumbnail", :rel => "popover", :data => { :content => media.teaser, "original-title" => media.name} }
   end
   
   def thumbnail_url_for( media, height = 150, width = 185)

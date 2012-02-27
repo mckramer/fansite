@@ -6,7 +6,12 @@
 */
 @import "bootstrap.css.scss";
 @import "bootstrap-custom.css.scss";
+@import "events.css.scss";
+@import "posts.css.scss";
 
 img.avatar {
   border-radius:5px;
+}
+.clear {
+  clear: both;
 }

@@ -1,15 +1,16 @@
 source 'http://rubygems.org'
+source 'http://gemcutter.org'
 
-gem 'rails', '3.1.0.rc3'
+gem 'rails', '3.1.1'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 
 # Asset template engines
 gem 'haml'
-gem 'sass-rails', "~> 3.1.0.rc"
+gem 'sass-rails'
 gem 'coffee-script'
 gem 'uglifier'
 
@@ -33,7 +34,21 @@ gem 'cancan'
 # APIs
 gem 'twitter'
 
+# Markdown
+gem 'rdiscount'
+
+# Other
+gem 'geocoder'
+
+group :test, :development do
+  gem 'rspec-rails'
+end
+
 group :test do
   # Pretty printed test output
-  gem 'turn', :require => false
+  # gem 'turn', :require => false
+  # gem 'minitest'
+  gem 'cucumber-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end

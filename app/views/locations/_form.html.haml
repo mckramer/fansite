@@ -1,0 +1,32 @@
+= form_for(@location) do |f|
+  - if @location.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@location.errors.count, "error")
+        prohibited this location from being saved:
+      %ul
+        - @location.errors.full_messages.each do |msg|
+          %li= msg
+  %fieldset
+    %legend
+    .field.clearfix
+      = f.label :name
+      .input= f.text_field :name
+    .field.clearfix
+      = f.label :url
+      .input= f.text_field :url
+    .field.clearfix
+      = f.label :address
+      .input= f.text_field :address
+    .field.clearfix
+      = f.label :latitude
+      .input
+        = f.text_field :latitude, disabled: true
+        %span.help-block Calculated from address
+    .field.clearfix
+      = f.label :longitude
+      .input
+        = f.text_field :longitude, disabled: true
+        %span.help-block Calculated from address
+  .actions.well
+    = f.submit class: 'btn primary'

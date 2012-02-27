@@ -7,20 +7,36 @@
       %ul
         - @event.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :teaser
-    = f.text_field :teaser
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :location
-    = f.text_field :location
-  .field
-    = f.label :category
-    = f.text_field :category
+  %fieldset
+    %legend
+    .field.clearfix
+      = f.label :name
+      .input= f.text_field :name
+    .field.clearfix
+      = f.label :teaser
+      .input= f.text_field :teaser
+    .field.clearfix
+      = f.label :description
+      .input= f.text_area :description
+    .field.clearfix
+      = f.label :location_id
+      .input= f.collection_select :location_id, @locations, :id, :name_with_address
+    .field.clearfix
+      = f.label :category
+      .input= f.collection_select :category, Event::CATEGORY_OPTIONS, :to_s, :humanize, prompt: true
+    %p 
+      The following times are localized to the following time zone:
+      = Time.zone
+    .field.clearfix
+      = f.label :start_at
+      .input.datetime
+        = f.datetime_select :start_at, minute_step: 15
+        %span.help-block Choose a start date
+    .field.clearfix
+      = f.label :end_at
+      .input.datetime= f.datetime_select :end_at, minute_step: 15
+    .field.clearfix
+      = f.label :all_day
+      .input= f.check_box :all_day
   .actions.well
-    = f.submit, class: 'btn primary'
+    = f.submit class: 'btn primary'

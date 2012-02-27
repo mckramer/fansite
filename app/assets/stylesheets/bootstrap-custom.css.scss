@@ -18,11 +18,23 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'ArchitectsDaughter';
+    src: url('architects-daughter/ArchitectsDaughter-webfont.eot');
+    src: url('architects-daughter/ArchitectsDaughter-webfont.eot?#iefix') format('embedded-opentype'),
+         url('architects-daughter/ArchitectsDaughter-webfont.woff') format('woff'),
+         url('architects-daughter/ArchitectsDaughter-webfont.ttf') format('truetype'),
+         url('architects-daughter/ArchitectsDaughter-webfont.svg#ArchitectsDaughterRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 $main-color: #AEC6CF;
 $main-color-red: red($main-color);
 $main-color-blue: blue($main-color);
 $main-color-green: green($main-color);
+$secondary-color: #FFD1DC;
 
 .brand {
   font-family: AngelinaRegular;
@@ -45,10 +57,21 @@ footer [class*="span"] {
     background-color: #FFFFFF;
     padding: 10px 20px;
 }
+a {
+  color: #00438a;
+}
 
+.topbar-inner,
 .topbar .fill {
   background-color: $main-color;
-  background-image: -moz-linear-gradient(center top , $main-color, darken($main-color, 12%));
+  background-image: -khtml-gradient(linear, left top, left bottom, from($main-color), to(darken($main-color, 12%)));
+  background-image: -moz-linear-gradient(top, $main-color, darken($main-color, 12%));
+  background-image: -ms-linear-gradient(top, $main-color, darken($main-color, 12%));
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $main-color), color-stop(100%, darken($main-color, 12%)));
+  background-image: -webkit-linear-gradient(top, $main-color, darken($main-color, 12%));
+  background-image: -o-linear-gradient(top, $main-color, darken($main-color, 12%));
+  background-image: linear-gradient(top, $main-color, darken($main-color, 12%));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$main-color', endColorstr='darken($main-color, 12%)', GradientType=0);
 }
 .topbar a {
   color: #f5f5f5;
@@ -217,8 +240,18 @@ footer {
   $darkened-main-color-30: darken($main-color, 30%);
   background: $darkened-main-color-30;
 }
+.popover .title {
+  background-color: lighten($main-color, 10%);
+}
 label, input, 
 select, textarea {
   font-family: JunctionRegular, "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
+}
+input, textarea, 
+select, .uneditable-input {
+  width: 350px;
+}
+.datetime select {
+  width: 75px;
 }

@@ -32,6 +32,16 @@ class Medium < ActiveRecord::Base
     return %w[youtube imggur photobucket itunes amazon twitter]
   end
   
+  def self.random(sample_size = 3)
+    if count == 0
+      nil
+    elsif count < sample_size
+      order("updated_at DESC").limit(count).sample
+    else
+      order("updated_at DESC").limit(sample_size).sample
+    end
+  end
+  
   private
   
   def validates_presence_of_urls

@@ -2,7 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  site_title: "Alana Leeders"
+  site_title: "Helper"
   site_tagline: "The official unofficial fan site"
   nav:
     title: "Here we go"

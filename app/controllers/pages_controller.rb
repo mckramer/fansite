@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
 
   def home
-    @media = Medium.last
+    @media = Medium.random
     @post = Post.last
-    @event = Event.last
+    @event = Event.random
     
     render :layout => 'display'
   end
@@ -17,9 +17,18 @@ class PagesController < ApplicationController
   end
   
   def updates
-    @posts = Post.all
-    @events = Event.all
-    @concerts = Event.where(:category => "concert")
+    @posts = Post.order('id DESC').limit(5)
+    @today = Date.today
+    @events = Event.upcoming
+    @concerts = Event.upcoming.where(:category => "concert")
+  end
+  
+  def locales
+    @locales = I18n.available_locales
+  end
+  
+  def translations
+    
   end
 
 end

@@ -1,6 +1,8 @@
 Omniauth::Application.routes.draw do
   
   resources :events
+  match 'media/category/:category', to: 'events#index'
+  resources :locations
   resources :posts
   resources :registrations, :only => [:new, :create]
   resources :users, :except => [:new, :create, :destroy]
@@ -10,8 +12,13 @@ Omniauth::Application.routes.draw do
   
   # resources :media_providers
   
+  # event_calendar
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  
   match 'about' => 'pages#about', as: 'about'
   match 'contact' => 'pages#contact', as: 'contact'
+  match 'locales' => 'pages#locales', as: 'locales'
+  match 'translations' => 'pages#translations', as: 'translations'
   match 'updates' => 'pages#updates', as: 'updates'
   match 'profile(/:username)' => 'users#show', as: 'profile'
   

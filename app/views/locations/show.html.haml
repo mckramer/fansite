@@ -1,0 +1,26 @@
+- content_for :page_title, @location.name
+.map{:style=>"float:right; background-color:white; padding: 5px; border-radius: 5px; margin-left: 15px;"}
+  %img{ :src => "http://maps.googleapis.com/maps/api/staticmap?center=#{@location.address.sub(' ', '+')}&zoom=14&size=300x250&sensor=false&markers=color:red|label:#{@location.name}|#{@location.address.sub(' ', '+')}" }
+%p
+  %b Homepage:
+  = link_to @location.url
+%p
+  %b Address:
+  = @location.address
+%p
+  %b Nearby locations:
+  - if @nearby_locations
+    %ul
+      - @nearby_locations.each do |location|
+        %li= link_to location.name, location
+  - else
+    None, sorry.
+.links.well.clear
+  - if can? :update, @location
+    = link_to 'Edit', edit_location_path(@location), class: 'btn'
+  = link_to 'Back', locations_path, class: 'btn'
+  
+%h2 Comments
+%p Sorry, there are no comments yet. Would you like to share your opinion?
+.links.well
+  = link_to 'Post comment', root_path, class: 'btn'

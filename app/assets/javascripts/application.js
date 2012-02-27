@@ -11,6 +11,10 @@ $(function () {
   $("a[rel*=popover]")
     .popover({
     offset: 10,
-    delayIn: 50
+    delayIn: 50,
+    placement: 'below'
   })
-}) 
+  $("[rel*=twipsy]").twipsy({
+   placement: 'below'
+  })
+})

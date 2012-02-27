@@ -28,14 +28,21 @@ class User < ActiveRecord::Base
     now.year - self.dob.year - ((now.month > self.dob.month || (now.month == self.dob.month && now.day >= self.dob.day)) ? 0 : 1)
   end
   
-  def self.gender_options
-    options = Hash.new
-    options['Unspecified'] = ""
-    options['Male'] = "male"
-    options['Female'] = "female"
-    options['Other'] = "other"
-    options
+  GENDER_OPTIONS = %w[male female other]
+  
+  def admin?
+    self.role == :admin
   end
+  
+  def editor?
+    self.role == :editor || self.role == :admin
+  end
+  
+  def moderator?
+    self.role == :moderator || self.role == :editor || self.role == :admin
+  end
+  
+  ROLE_OPTIONS = %w[moderator editor admin]
 
   
   private

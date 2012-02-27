@@ -1,0 +1,38 @@
+- current_day = @shown_month.beginning_of_month
+%table.event-calendar
+  %thead.month
+    %tr
+      %td.previous{colspan: 2}= prev_month_link @shown_month, class: 'btn'
+      %th.title{colspan: 3}
+        = l @shown_month, format: '%B %Y'
+      %td.next{colspan: 2}= next_month_link @shown_month, class: 'btn'
+  %thead.days-of-the-week
+    %tr
+      - day_names = t('date.day_names')
+      - abbr_day_names = t('date.abbr_day_names')
+      - 7.times do |index|
+        %th{rel:'twipsy', title: day_names[index]}= abbr_day_names[index]
+  %tbody
+    - while current_day < @shown_month.end_of_month
+      %tr
+        - 7.times do |count|
+          - if current_day.day == 1 && count != current_day.wday
+            %td.hidden
+          - elsif current_day.mon > @shown_month.mon
+            %td.hidden
+          - else
+            - day_classes = Array.new
+            - day_classes << "weekend" if current_day.sunday? || current_day.saturday?
+            - day_classes << "today" if current_day == @today
+            %td{class: day_classes.join(' ')}
+              .day= current_day.day
+              - unless @events_for_month[current_day.day].nil? || @events_for_month[current_day.day].empty?
+                .events
+                  - @events_for_month[current_day.day].each do |event|
+                    %div{class:"event #{event.category} #{'allday' if event.all_day?}"}= event_link(event)
+            - current_day = current_day.tomorrow
+  %tfoot
+    %tr
+      %td.previous{colspan: 2}= prev_month_link @shown_month, class: 'btn'
+      %th.title{colspan: 3}
+      %td.next{colspan: 2}= next_month_link @shown_month, class: 'btn'

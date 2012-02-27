@@ -1,5 +1,11 @@
 .post
-  %h2= post.title
-  %p= post.teaser
+  %h3= post.title
+  %p= truncate( strip_tags( markdown_to_html( post.body ) ), length: 150 )
+  %p
+    By
+    = link_to post.user.display, post.user
+    on
+    = l post.created_at, :format => :long
   .links
-    = link_to 'Read more...', post, class: 'btn'
+    = link_to 'Read more', post, class: 'btn'
+    = link_to 'Share on twitter', 'https://twitter.com/share', class: 'btn'

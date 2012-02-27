@@ -19,8 +19,8 @@
       = f.label :body
       .input= f.text_area :body
     .field.clearfix
-      = f.label :user
-      .input= f.text_field :user
+      = f.label :user_id
+      .input= f.collection_select :user_id, @users, :id, :username
   .actions.well
     = f.submit class: "btn primary large"
     - unless @post.new_record?
