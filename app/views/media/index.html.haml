@@ -6,8 +6,8 @@
     %li 
       = t('.filter.type')
       %ul
-        - Medium.form_options.each do |type|
-          %li= link_to type.titleize, media_type_path(type)
+        - Medium.form_options.each do |key, value|
+          %li= link_to value.titleize, media_type_path(key)
     %li 
       = t('.filter.recorded_on')
       %ul

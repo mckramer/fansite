@@ -1,3 +1,28 @@
-- content_for :page_title, "Updates"
-- content_for :page_tagline, "Find out what is happening"
-%p Let's do something here
+- content_for :page_title, t('.title')
+- content_for :page_tagline, t('.subtitle')
+%div{style: "float: left; width: 45%;"}
+  - unless @event.nil?
+    %h2= t('.featured_event.header')
+    %p= t('.featured_event.teaser')
+    .featured-event
+      = render @event
+  - else
+    .featured-event{style: "padding: 5px; text-align: center;"}
+      = image_tag "http://www.alanaleemusic.net/dev/wp-content/uploads/2011/06/MG_7061-150x150.jpg", style: "width: 100%;"
+- unless @post.nil?
+  %div{style: "float: right; width: 45%; padding-right: 5%"}
+    %h2= t('.featured_post.header')
+    %p= t('.featured_post.teaser')
+    .featured-post
+      = render @post
+.clear
+.featured-tweets
+  %h2 Twitter-sphere
+  - unless @tweets.blank?
+    - @tweets.each do |tweet|
+      = render 'shared/tweet', tweet: tweet
+  - else
+    %p 
+      We don't see any new tweets from our account. But check over at our twitter page (
+      = link_to_twitter t('twitter')
+      ) and never miss a second of news by following us.

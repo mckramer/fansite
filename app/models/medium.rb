@@ -1,7 +1,7 @@
 # -- Attributes --
 # name, string
 # description, text
-# type, string => image, music, video, music-video
+# type, string => image, music, video
 # belongs_to media_provider
 # provider_media_id, string
 # source_url, string
@@ -24,12 +24,11 @@ class Medium < ActiveRecord::Base
   validates_presence_of :provider
   validate :validates_presence_of_urls
   
+  ##
+  # Form options
+  #
   def self.form_options
-    return %w[image music video]
-  end
-  
-  def self.provider_options
-    return %w[youtube imggur photobucket itunes amazon twitter]
+    I18n.t('media.types')
   end
   
   def self.random(sample_size = 3)

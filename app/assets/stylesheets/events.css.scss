@@ -95,3 +95,43 @@ table.event-calendar {
   
   }
 }
+
+.featured-event {
+  background-color: $secondary-color;
+  -moz-border-radius: 5px;
+  padding: 20px;
+  
+  h3 {
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+  
+  a, a:link, a:visited {
+    color: darken($secondary-color, 50%);
+  }
+  
+}
+
+.events {
+  
+  .event {
+    border-bottom: 1px solid $secondary-color;
+  }
+  
+  .event + .event {
+    border-bottom: none;
+    margin-bottom: 15px;
+  }
+}
+
+.event {
+  h3 {
+    
+  }
+  .teaser {
+  
+  }
+  .date {
+  
+  }
+}

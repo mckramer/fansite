@@ -1,0 +1,10 @@
+﻿es:
+  activerecord:
+    models:
+      media: "Medios de comunicación"
+    attributes:
+      media:
+        name: "Nombre"
+        teaser: "Teaser"
+        description: "Descripción"
+        analysis: "Análisis"

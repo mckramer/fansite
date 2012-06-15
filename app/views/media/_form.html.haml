@@ -20,7 +20,7 @@
       .input= f.text_area :teaser
     .field.clearfix
       = f.label :form
-      .input= f.select :form, Medium.form_options, :prompt => true
+      .input= f.select :form, Medium.form_options.map { |key, value| [ value.titleize, key.to_s ] } , :prompt => true
     .field.clearfix
       = f.label :media_provider_id
       .input= collection_select :medium, :media_provider_id, @providers, :id, :name, :prompt => true
@@ -37,5 +37,8 @@
       = f.label :content_url
       .input= f.text_field :content_url
   .actions.well
-    = f.submit class: 'btn large primary'
-    = link_to 'Cancel', media_path, class: 'btn large'
+    = f.submit class: 'btn success'
+    - if @medium.new_record?
+      = link_to "Cancel, and head back to the rest of the media", media_path, class: 'btn danger'
+    - else
+      = link_to "Cancel, and return to the item", @medium, class: 'btn danger'

@@ -19,6 +19,9 @@
       = f.label :body
       .input= f.text_area :body
     .field.clearfix
+      = f.label :teaser
+      .input= f.text_field :teaser
+    .field.clearfix
       = f.label :user_id
       .input= f.collection_select :user_id, @users, :id, :username
   .actions.well

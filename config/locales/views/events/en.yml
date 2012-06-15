@@ -12,3 +12,5 @@ en:
     edit:
       title: "Edit event"
       subtitle: "Fix the errors"
+    category:
+      concert: "Concert"

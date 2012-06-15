@@ -3,18 +3,16 @@
   %li
     = link_to t("nav.home"), root_path
     %ul
-      %li= link_to t("nav.about"), controller: "pages", action: "about"
-      %li= link_to t("nav.contact"), controller: "pages", action: "contact"
-  %li= link_to 'Social', '/social'
+      %li= link_to t("nav.about"), about_path
+      %li= link_to t("nav.contact"), contact_path
   %li
     = link_to 'Updates', updates_path
     %ul
-      %li= link_to 'Posts', '/updates/posts'
-      %li= link_to 'Concerts', '/updates/concerts'
-      %li= link_to 'Events', '/updates/events'
+      %li= link_to 'Posts', posts_path
+      %li= link_to_events_by_category :concert
+      %li= link_to 'Events', events_path
   %li
-    = link_to 'Media', '/media'
+    = link_to 'Media', media_path
     %ul
-      %li= link_to 'Music', '/media/music'
-      %li= link_to 'Pictures', '/media/pictures'
-      %li= link_to 'Videos', '/media/videos'
+      - Medium.form_options.each do |key, value|
+        %li= link_to_media_by_type key

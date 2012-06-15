@@ -1,10 +1,11 @@
 .row
   .span5 
-    %h2.brand= t 'site_title'
-    %p= t 'site_tagline'
-    %p= link_to '@alanaleeders', 'http://twitter.com/alanaleeders'
-    %p= link_to 'alanaleeders.com', 'http://www.alanaleeders.com'
-    %p= link_to 'alanaleeders.org', 'http://www.alanaleeders.org'
+    %h2.brand= t('site_title')
+    %p= t('site_tagline')
+    %p= link_to_twitter t('twitter')
+    %p= link_to_facebook t('facebook')
+    %p= link_to t('website'), "http://#{t('website')}"
+    %p= link_to t('website2'), "http://#{t('website2')}"
   .span4
     %nav= render 'layouts/nav'    
   .span5

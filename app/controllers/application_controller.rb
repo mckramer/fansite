@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
   before_filter :set_user_language
   before_filter :set_user_time_zone
+  
   helper_method :current_user
   helper_method :logged_in?
   
@@ -24,10 +26,10 @@ class ApplicationController < ActionController::Base
       if I18n.available_locales.include?(params[:locale].to_sym)
         I18n.locale = params[:locale]
       else
-        flash[:warning] = 'Sorry, but that locale is not supported.'
+        flash[:warning] = (t('notice.locale_not_supported') + ' <a href="/translations">' + t('notice.help_translate') + '</a>').html_safe
       end
     else
-      I18n.locale = current_user.locale if logged_in? && current_user.locale.blank? == false
+      I18n.locale = current_user.locale if logged_in? && !current_user.locale.blank?
     end
   end
   

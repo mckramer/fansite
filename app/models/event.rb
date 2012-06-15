@@ -22,6 +22,7 @@ class Event < ActiveRecord::Base
   
   private
   
+  # validates start_at and end_at dates
   def start_at_and_end_at
     if start_at == end_at
       errors.add(:start_at, "cannot equal the end at")

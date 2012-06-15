@@ -31,7 +31,7 @@ class AuthenticationsController < ApplicationController
         sign_in(user)
         redirect_to request.env["omniauth.origin"] || authentications_path
       else
-        session[:omniauth] = omniauth.except('extra')
+        session[:omniauth] = omniauth.except(:extra)
         # how to deal with sign in here
         redirect_to controller: 'registrations', action: 'new'
       end

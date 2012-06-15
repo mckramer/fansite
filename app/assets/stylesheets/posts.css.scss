@@ -38,3 +38,20 @@ body.Posts {
     padding: 5px 18px;
   }
 }
+
+.featured-post {
+  background-color: $secondary-color;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 20px;
+  
+  h3 {
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+  
+  a, a:link, a:visited {
+    color: darken($secondary-color, 50%);
+  }
+  
+}

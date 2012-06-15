@@ -39,4 +39,8 @@
       = f.label :all_day
       .input= f.check_box :all_day
   .actions.well
-    = f.submit class: 'btn primary'
+    = f.submit class: 'btn success'
+    - if @event.new_record?
+      = link_to "Cancel, and return to events", events_path, class: 'btn danger'
+    - else
+      = link_to "Cancel, and return to event", @event, class: 'btn danger'

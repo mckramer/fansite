@@ -1,10 +1,9 @@
 %h3= link_to event.name, event
 %p.teaser= event.teaser
-%p= event.description
 .date
-  It starts at 
+  Starts
   = l event.start_at.to_time, format: :long
-  and ends at
+  and ends
   = l event.end_at.to_time, format: :long
 .links
   = link_to 'View event', event, class: 'btn'

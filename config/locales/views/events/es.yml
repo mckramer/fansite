@@ -1,0 +1,16 @@
+es:
+  events:
+    index:
+      title: "Eventos, conciertos, y fiestas"
+      subtitle: "Doing big things"
+    show:
+      title: "Evento"
+      subtitle: "Check this out"
+    new:
+      title: "Evento nuevo"
+      subtitle: "What we going to be doing?"
+    edit:
+      title: "Editar el evento"
+      subtitle: "Fix the errors"
+    category:
+      concert: "Concierto"

@@ -1,5 +1,5 @@
 .post
-  %h3= post.title
+  %h3= link_to post.title, post
   %p= truncate( strip_tags( markdown_to_html( post.body ) ), length: 150 )
   %p
     By
@@ -8,4 +8,4 @@
     = l post.created_at, :format => :long
   .links
     = link_to 'Read more', post, class: 'btn'
-    = link_to 'Share on twitter', 'https://twitter.com/share', class: 'btn'
+    = link_to 'Share on twitter', twitter_share_path(post), class: 'btn'

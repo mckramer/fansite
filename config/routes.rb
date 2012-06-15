@@ -1,14 +1,14 @@
 Omniauth::Application.routes.draw do
   
   resources :events
-  match 'media/category/:category', to: 'events#index'
+  match 'events/category/:category' => 'events#index'
   resources :locations
   resources :posts
   resources :registrations, :only => [:new, :create]
   resources :users, :except => [:new, :create, :destroy]
   
   resources :media
-  match 'media/type/:form', to: 'media#index'
+  match 'media/type/:form' => 'media#index'
   
   # resources :media_providers
   

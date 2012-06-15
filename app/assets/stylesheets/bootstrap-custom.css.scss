@@ -214,7 +214,7 @@ footer {
 .btn.primary {
   background-color: darken($main-color, 10%);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(lighten($main-color, 10%)), color-stop(25%, lighten($main-color, 10%)), to($main-color));
-  background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, $main-color);
+  /* background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, $main-color); */
   background-image: -moz-linear-gradient(top, lighten($main-color, 10%), $main-color 25%, darken($main-color, 10%));
   background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, $main-color);
   background-image: -o-linear-gradient(#ffffff, #ffffff 25%, $main-color);

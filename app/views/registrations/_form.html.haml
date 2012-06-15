@@ -43,4 +43,4 @@
     = hidden_field_tag "authentication_uid", @user.authentications.first.uid
   .actions.well
     = f.submit 'Register!', class: 'btn large primary'
-    = f.submit 'Cancel registration', class: 'btn large'
+    = link_to 'Cancel registration', root_path, class: 'btn large'

@@ -30,3 +30,5 @@
         %span.help-block Calculated from address
   .actions.well
     = f.submit class: 'btn primary'
+    - if @location.new_record?
+      = link_to "Cancel, and return to locations", locations_path

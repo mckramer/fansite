@@ -10,6 +10,9 @@
     </div>
 
     <div class="container">
+      
+      <%= render 'layouts/alerts' %>
+      
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1><%= yield :page_title %></h1>
@@ -22,9 +25,9 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="span5" style="padding-top: 10px;">
-          <h2>Upcoming concerts</h2>
-          <p>Finally, Alana has released information related to concerts. She will be traveling as time allows in California and then a trip to the East coast is needed.</p>
-          <p><%= link_to 'View the concerts »', '/updates/concerts', class: 'btn' %></p>
+          <h2><%= @event.name %></h2>
+          <p><%= @event.teaser %></p>
+          <p><%= link_to "View the #{@event.category} »", @event, class: 'btn' %></p>
         </div>
         <div class="span5 featured">
           <h2><%= @media.name %></h2>
@@ -32,9 +35,9 @@
           <p><%= link_to t("media.buttons.view."+@media.form)+" »", @media, class: 'btn' %></p>
        </div>
         <div class="span5" style="padding-top: 10px;">
-          <h2>Interview with Alana</h2>
-          <p>We sat down with Alana to ask her questions provided by you. Check out the results. You may be surprised.</p>
-          <p><%= link_to 'View the interview »', '/updates/posts/1-Interview-with-Alana', class: 'btn' %></p>
+          <h2><%= @post.title %></h2>
+          <p><%= @post.teaser %></p>
+          <p><%= link_to 'View the interview »', @post, class: 'btn' %></p>
         </div>
       </div>
 

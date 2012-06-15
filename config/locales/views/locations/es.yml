@@ -1,0 +1,15 @@
+﻿es:
+  locations:
+    index:
+      title: "Lugares"
+      subtitle: "Where is Waldo?"
+      no_results: "Oh, boy. This is embarassing. There are no results."
+    show:
+      title: "Estás aquí"
+      subtitle: "Check it out now"
+    new:
+      title: "Nuevo lugar"
+      subtitle: "Where we headed?"
+    edit:
+      title: "Editar el lugar"
+      subtitle: "Best to get it right"

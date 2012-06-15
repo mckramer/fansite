@@ -13,3 +13,7 @@ en:
     edit:
       title: "Edit post"
       subtitle: "Strive for perfection"
+    buttons:
+      category:
+        interview: ""
+        

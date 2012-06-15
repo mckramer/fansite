@@ -10,7 +10,7 @@
   .field.clearfix
     = f.label :username
     .input
-      .input-prepend
+      .input-prepend 
         %span.add-on @
         = f.text_field :username, placeholder: "username"
       %span.help-block Choose a unique username. Required.
@@ -50,3 +50,7 @@
       %span.help-block Optionally provide your local time zone. Otherwise all times will be displayed as UTC.
   .actions.well
     = f.submit 'Save profile', class: 'btn large primary'
+    - if @user.new_record?
+      = link_to 'Cancel, do not create account', root_path, class: 'btn large danger'
+    - else
+      = link_to 'Cancel, do not update profile', @user, class: 'btn large danger'

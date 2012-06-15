@@ -3,9 +3,11 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.scoped
-    if params[:category] 
-      if Event::CATEGORY_OPTIONS.include?(params[:category])
-        @events = @events.where(category: params[:category])
+    if params[:category]
+      category = params[:category]
+      if Event::CATEGORY_OPTIONS.include?(category)
+        @events = @events.where(category: category)
+        @category = category
       else
         # TODO: i18n
         flash[:error] = "Invalid category specified. Instead we are showing all events."

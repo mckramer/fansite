@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  before_save :blacklist
+  #before_save :blacklist
 
   has_many :authentications
   has_many :updates
@@ -31,19 +31,18 @@ class User < ActiveRecord::Base
   GENDER_OPTIONS = %w[male female other]
   
   def admin?
-    self.role == :admin
+    :admin == role
   end
   
   def editor?
-    self.role == :editor || self.role == :admin
+    role == :editor || admin?
   end
   
   def moderator?
-    self.role == :moderator || self.role == :editor || self.role == :admin
+    role == :moderator || editor?
   end
   
   ROLE_OPTIONS = %w[moderator editor admin]
-
   
   private
   

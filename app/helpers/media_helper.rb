@@ -10,6 +10,11 @@ module MediaHelper
     link_to media_type_image_tag(type, size), media_type_path(type)
   end
   
+  # Generates localized text link to a type of media
+  def link_to_media_by_type(type)
+    link_to t("media.types.#{type}").capitalize, media_type_path(type)
+  end
+  
   # Generates path to index action filtered by type of media
   def media_type_path(type)
     return "#{media_path}/type/#{type}"
@@ -37,10 +42,12 @@ module MediaHelper
     url
   end
   
+  # Generates linked thumbnail to media path
   def thumbnail_for(media, height = 150, width = 185)
     link_to image_tag(thumbnail_url_for(media, height, width)), media, { :class => "thumbnail", :rel => "popover", :data => { :content => media.teaser, "original-title" => media.name} }
   end
   
+  # Generates url to thumbnail for a given medium
   def thumbnail_url_for( media, height = 150, width = 185)
     url = nil
     if media.thumbnail_url.blank? == false

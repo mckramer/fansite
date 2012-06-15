@@ -1,4 +1,7 @@
-- content_for :page_title, "Editing medium"
+- content_for :page_title, t('.title')
+- content_for :page_tagline, t('.subtitle')
+
 = render 'form'
-= link_to 'Show', @medium
-= link_to 'Back', media_path
+.links
+  = link_to 'Show', @medium
+  = link_to 'Back', media_path

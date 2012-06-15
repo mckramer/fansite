@@ -1,18 +1,24 @@
-%h1 Listing users
+- content_for :page_title, t('.title')
+- content_for :page_tagline, t('.subtitle')
 
 %table
   %thead
     %tr
-      %th Username
+      %th Leeder
       %th Name
-      %th Joined
+      %th How long have been a leeder?
       %th Authentication
   %tbody
     - @users.each do |user|
       %tr
         %td= link_to user.display, user
         %td= user.name
-        %td= l user.created_at.to_date, :format => :long
-        %td= link_to image_tag("http://github.com/intridea/authbuttons/raw/master/png/twitter_32.png"), "http://twitter.com/#{user.username}" unless user.authentications.exists?(:provider => 'twitter')
-.links
-  = link_to 'New User', new_user_path
+        %td= time_ago_in_words(user.created_at.to_date)
+        %td
+          = link_to image_tag("http://github.com/intridea/authbuttons/raw/master/png/openid_32.png"), user if user.authentications.exists?(:provider => 'developer')
+          = link_to image_tag("http://github.com/intridea/authbuttons/raw/master/png/twitter_32.png"), "http://twitter.com/#{user.username}" if user.authentications.exists?(:provider => 'twitter')
+          = link_to image_tag("http://github.com/intridea/authbuttons/raw/master/png/facebook_32.png"), "http://facebook.com/#{user.username}" if user.authentications.exists?(:provider => 'facebook')
+- unless current_user
+  .well.links
+    Want to join? 
+    = link_to 'Become a Leeder', "/join", class: 'btn primary'

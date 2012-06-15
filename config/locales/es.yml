@@ -1,0 +1,48 @@
+# Localization file for Spanish. Add more files in this directory for other locales.
+
+es:
+  site_title: "Ayuda"
+  site_tagline: "El sitio official y inofficial para los admiradores"
+  nav:
+    title: "Vamos"
+    home: "Hogar"
+    about: "Sobre"
+    contact: "Contacto"
+  notice:
+    signed_in: "Ha comenzado la sesión."
+    signed_out: "Ha finalizado la sesión."
+    new_authentication: "New authentication was successful to your account."
+    new_user: "Congratulations, your account was successfully created and you are now signed in. Welcome!"
+    not_authorized: "Lo siento, you are not authorized to do that. 403"
+  model:
+    user:
+      dob:
+        display: "Fecha de nacimiento"
+        abbr: "D.O.B."
+      age:
+        display: "Edad"
+        abbr: "Edad"
+        unspecified:
+          a: "A mystery"
+          b: "Somewhere between 13 and 106"
+          c: "That's need to know information"
+          d: "Wouldn't you like to know?"
+          e: "'Tis a secret"
+      email:
+        display: "Email"
+        abbr: "Email"
+      gender:
+        display: "Sexo"
+        abbr: "Sexo"
+        unspecified:
+          a: "A mystery"
+          b: "Somewhere between an elephant and a wildebeast"
+          c: "That's need to know information"
+          d: "Wouldn't you like to know?"
+          e: "'Tis a secret"
+      name:
+        display: "Nombre"
+        abbr: "Nombre"
+      username:
+        display: "Nombre de usuario"
+        abbr: "Nombre de usuario"

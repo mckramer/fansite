@@ -1,9 +1,12 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# Localization file for English. Add more files in this directory for other locales.
 
 en:
   site_title: "Helper"
   site_tagline: "The official unofficial fan site"
+  website: 'alanaleeders.com'
+  website2: 'alanaleeders.org'
+  facebook: 'alanaleeders'
+  twitter: 'alanaleeders'
   nav:
     title: "Here we go"
     home: "Home"
@@ -15,6 +18,8 @@ en:
     new_authentication: "New authentication was successful to your account."
     new_user: "Congratulations, your account was successfully created and you are now signed in. Welcome!"
     not_authorized: "I'm sorry, you are not authorized to do that. 403"
+    locale_not_supported: "Sorry, the specified locale is not supported right now."
+    help_translate: "Head over to see how to help."
   model:
     user:
       dob:

@@ -16,10 +16,11 @@ class Ability
       # can :update, Comment, :user_id => user.id
       can :read, [Post, Event, Medium]
     else
+      # Anonymous
       can :read, [Post, Event, Medium]
     end
     
-    # Testing
+    # Testing, by granting full permissions
     can :manage, :all
   end
 end
