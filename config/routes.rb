@@ -1,4 +1,4 @@
-Omniauth::Application.routes.draw do
+Fansite::Application.routes.draw do
   
   resources :events
   match 'events/category/:category' => 'events#index'

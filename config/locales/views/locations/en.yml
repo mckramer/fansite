@@ -1,15 +1,16 @@
-en:
-  locations:
-    index:
-      title: "Locations"
-      subtitle: "Where is Waldo?"
-      no_results: "Oh, boy. This is embarassing. There are no results."
-    show:
-      title: "Here we are now"
-      subtitle: "Check it out now"
-    new:
-      title: "New location"
-      subtitle: "Where we headed?"
-    edit:
-      title: "Update location"
+﻿--- 
+en: 
+  locations: 
+    edit: 
       subtitle: "Best to get it right"
+      title: "Update location"
+    index: 
+      no_results: "Oh, boy. This is embarassing. There are no results."
+      subtitle: "Where is Waldo?"
+      title: Locations
+    new: 
+      subtitle: "Where we headed?"
+      title: "New location"
+    show: 
+      subtitle: "Check it out now"
+      title: "Here we are now"

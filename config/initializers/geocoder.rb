@@ -1,5 +1,3 @@
-require 'api_keys'
-
 Geocoder.configure do |config|
 
   # geocoding service (see below for supported options):

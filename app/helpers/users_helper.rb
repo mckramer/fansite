@@ -7,6 +7,7 @@ module UsersHelper
         case auth.provider
           when :facebook then url = "https://graph.facebook.com/#{auth.uid}/picture"
           when :twitter then url ||= "https://api.twitter.com/1/users/profile_image/#{auth.uid}"
+        end
       end
     end
     url || "http://placehold.it/200x200"

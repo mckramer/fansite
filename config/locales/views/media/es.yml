@@ -1,31 +1,32 @@
-﻿es:
-  media:
-    types:
-      music: "música"
-      image: "imagen"
-      video: "vídeo"
-    buttons:
-      view:
-        music: "Jam to the music"
+﻿--- 
+es: 
+  media: 
+    buttons: 
+      view: 
         image: "View the image"
+        music: "Jam to the music"
         video: "Watch the video"
-    index:
-      title: "The media"
-      subtitle: "Come and get 'em"
-      filter:
-        type: "Filter by type?"
+    edit: 
+      subtitle: "Best to get it right"
+      title: "Editar medium"
+    index: 
+      filter: 
         recorded_on: "Filter by year recorded"
         released_on: "Filter by year released"
+        type: "Filter by type?"
       no_results: "Oh, boy. This is embarassing. There are no results. Try searching for media with broader parameters."
       search_options: "Search options"
-    show:
-      title: ""
-      subtitle: ""
+      subtitle: "Come and get 'em"
+      title: "The media"
+    new: 
+      subtitle: "Sharing something?"
+      title: "Nuevo medium"
+    show: 
       no_analysis: "Lo siento, no analysis for this medium has been written yet."
       no_captions: "Lo siento, the lyrics have not been added for this medium."
-    new:
-      title: "Nuevo medium"
-      subtitle: "Sharing something?"
-    edit:
-      title: "Editar medium"
-      subtitle: "Best to get it right"
+      subtitle: ""
+      title: ""
+    types: 
+      image: imagen
+      music: música
+      video: vídeo

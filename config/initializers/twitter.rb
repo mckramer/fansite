@@ -1,5 +1,3 @@
-require 'api_keys'
-
 Twitter.configure do |config|
   config.consumer_key = ApiKeys.twitter[:consumer_key]
   config.consumer_secret = ApiKeys.twitter[:consumer_secret]

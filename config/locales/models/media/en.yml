@@ -1,10 +1,11 @@
-en:
-  activerecord:
-    models:
-      media: "Media"
-    attributes:
-      media:
-        name: "Name"
-        teaser: "Teaser"
-        description: "Description"
-        analysis: "Analysis"
+﻿--- 
+en: 
+  activerecord: 
+    attributes: 
+      media: 
+        analysis: Analysis
+        description: Description
+        name: Name
+        teaser: Teaser
+    models: 
+      media: Media

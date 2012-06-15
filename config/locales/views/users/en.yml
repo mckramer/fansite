@@ -1,11 +1,12 @@
-en:
-  users:
-    index:
-      title: "Leeders"
-      subtitle: "Check out the Leeders"
-    show:
-      title: "It is this person"
-      subtitle: "Who do we have here?"
-    edit:
-      title: "Update profile"
+﻿--- 
+en: 
+  users: 
+    edit: 
       subtitle: "Got something to share?"
+      title: "Update profile"
+    index: 
+      subtitle: "Check out the Leeders"
+      title: Leeders
+    show: 
+      subtitle: "Who do we have here?"
+      title: "It is this person"

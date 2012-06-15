@@ -1,32 +1,33 @@
-en:
-  pages:
-    home:
-      title: 'Home'
-      subtitle: "Where real fans go to be fans"
-    about:
-      title: 'About'
+﻿--- 
+en: 
+  pages: 
+    about: 
       subtitle: "Who we be?"
-    contact:
-      title: 'Contact'
-      subtitle: "Message us"
-      feedback:
-        header: 'Questions or comments?'
-        text: 'We are always happy and excited to field and questions or comments you may have.'
-        email: 'feedback'
-      feature_requests:
-        header: 'Feature requests?'
+      title: About
+    contact: 
+      feature_requests: 
+        email: features
+        header: "Feature requests?"
         text: "This site is for you and supposed to be designed for you. If you have any ideas or requests on how to improve the site, we'd love to hear them!"
-        email: 'features'
-      other:
-        header: 'Other feedback?'
+      feedback: 
+        email: feedback
+        header: "Questions or comments?"
+        text: "We are always happy and excited to field and questions or comments you may have."
+      other: 
+        email: contact
+        header: "Other feedback?"
         text: "You can always feel free to contact us."
-        email: 'contact'
-    updates:
-      title: "Updates"
-      subtitle: "Find out what is happening"
-      featured_event:
+      subtitle: "Message us"
+      title: Contact
+    home: 
+      subtitle: "Where real fans go to be fans"
+      title: Home
+    updates: 
+      featured_event: 
         header: "What's going on?"
         teaser: "Are you looking to doing something fun?"
-      featured_post:
+      featured_post: 
         header: "What's new?"
         teaser: "Catch up on the latest in the world"
+      subtitle: "Find out what is happening"
+      title: Updates

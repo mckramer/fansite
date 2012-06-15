@@ -1,10 +1,11 @@
-﻿es:
-  activerecord:
-    models:
+﻿--- 
+es: 
+  activerecord: 
+    attributes: 
+      media: 
+        analysis: Análisis
+        description: Descripción
+        name: Nombre
+        teaser: Teaser
+    models: 
       media: "Medios de comunicación"
-    attributes:
-      media:
-        name: "Nombre"
-        teaser: "Teaser"
-        description: "Descripción"
-        analysis: "Análisis"

@@ -1,16 +1,17 @@
-es:
-  events:
-    index:
-      title: "Eventos, conciertos, y fiestas"
-      subtitle: "Doing big things"
-    show:
-      title: "Evento"
-      subtitle: "Check this out"
-    new:
-      title: "Evento nuevo"
-      subtitle: "What we going to be doing?"
-    edit:
-      title: "Editar el evento"
+﻿--- 
+es: 
+  events: 
+    category: 
+      concert: Concierto
+    edit: 
       subtitle: "Fix the errors"
-    category:
-      concert: "Concierto"
+      title: "Editar el evento"
+    index: 
+      subtitle: "Doing big things"
+      title: "Eventos, conciertos, y fiestas"
+    new: 
+      subtitle: "What we going to be doing?"
+      title: "Evento nuevo"
+    show: 
+      subtitle: "Check this out"
+      title: Evento
