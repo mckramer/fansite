@@ -1,3 +1,5 @@
+require 'api_keys'
+
 Geocoder.configure do |config|
 
   # geocoding service (see below for supported options):
@@ -6,7 +8,7 @@ Geocoder.configure do |config|
   # to use an API key:
   # config.api_key = "..."
   
-  config.http_proxy = 'http://http.proxy.fmr.com:8000'
+  config.http_proxy = ApiKeys.proxy
 
   # geocoding service request timeout, in seconds (default 3):
   # config.timeout = 5
