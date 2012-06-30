@@ -3,21 +3,8 @@ source 'http://gemcutter.org'
 
 gem 'rails', '3.2.6'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+# Database
 gem 'sqlite3'
-
-# Asset template engines
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-script'
-  gem 'uglifier'
-end
-
-gem 'haml-rails'
-
-gem 'jquery-rails'
 
 # Authentication
 gem 'omniauth-twitter'
@@ -31,7 +18,21 @@ gem 'twitter'
 gem 'rdiscount'
 
 # Other
+# gem 'earth_tools'
 gem 'geocoder'
+
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-script'
+  gem 'uglifier'
+end
+
+gem 'haml-rails'
+gem 'jquery-rails'
+
+group :development do
+
+end
 
 group :test, :development do
   gem 'rspec-rails'
