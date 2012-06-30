@@ -4,6 +4,16 @@ en:
     about: 
       subtitle: "Who we be?"
       title: About
+      topics:
+        -
+          header: "What is a Leeder?"
+          content: "A declaration from Alana declared that all her fans should henceforth be known as 'Leeders'."
+        -
+          header: "What is this site for?"
+          content: "We have created a space for Leeders to share their fandom for Alana Lee and share.  It also serves as a platform to increase the "
+        -
+          header: "What can we do here?"
+          content: "Watch videos, listen to music, view pictures, discuss, learn about concerts, and share your fan-inspired art."
     contact: 
       feature_requests: 
         email: features

@@ -1,8 +1,5 @@
 - content_for :page_title, t('pages.about.title')
 - content_for :page_tagline, t('pages.about.subtitle')
-%h2 What is a Leeder?
-%p A declaration from Alana declared that all her fans should henceforth be known as "Leeders".
-%h2 What is this site for?
-%p We have created a space for Leeders to share their fandom for Alana Lee and share.  It also serves as a platform to increase the 
-%h2 What can we do here?
-%p Watch videos, listen to music, view pictures, discuss, learn about concerts, and share your fan-inspired art.
+- t('.topics').each do |topic|
+  %h2= topic['header']
+  %p= topic['content']
