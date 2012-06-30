@@ -15,6 +15,17 @@ namespace :db do
         :content_url => "http://www.hulu.com/watch/[id]"
       )
       
+=begin
+      # instagram
+      instagram = MediaProvider.create!(
+        name: "Instagram",
+        homepage_url: "https://instagram.com",
+        source_url: "",
+        thumbnail_url: "",
+        content_url: ""
+      )
+=end
+      
       # imgur
       puts '> Create imgur'
       imgur = MediaProvider.create!(
@@ -28,14 +39,20 @@ namespace :db do
 =begin
       # twitpic
       twitpic = MediaProvider.create!(
-      
+        name: "twitpic"
+        homepage_url: "http://twitpic.com",
+        source_url: "",
+        thumbnail_url: "",
+        content_url: "http://twitpic.com/[id]"
       )
-=end
 
-=begin
       # pic.twitter
       twitter = MediaProvider.create!(
-      
+        name: "Twitter",
+        homepage_url: "https://twitter.com",
+        source_url: "",
+        thumbnail_url: "",
+        content_url: "https://twitter.com/[user]/status/[id]"
       )
 =end
 
@@ -43,7 +60,7 @@ namespace :db do
       puts '> Create YouTube'
       youtube = MediaProvider.create!(
         :name => "YouTube",
-        :homepage_url => "http://www.youtube.com/",
+        :homepage_url => "http://www.youtube.com",
         :source_url => "http://youtube.com/embed/[id]",
         :thumbnail_url => "http://img.youtube.com/vi/[id]/2.jpg",
         :content_url => "http://www.youtube.com/watch?v=[id]"
