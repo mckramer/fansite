@@ -36,6 +36,10 @@
     .field.clearfix
       = f.label :content_url
       .input= f.text_field :content_url
+    %hr
+    .field.clearfix
+      = f.label :released_on
+      .input= f.date_select :released_on
   .actions.well
     = f.submit class: 'btn success'
     - if @medium.new_record?

@@ -4,18 +4,20 @@ class MediaController < ApplicationController
   # GET /media.json
   def index
     @media = Medium.scoped
-    if params[:form] 
-      if Medium.form_options.include?(params[:form])
+    if params[:form]
+      if Medium.form_options.include?(params[:form].to_sym)
         @media = @media.where(form: params[:form])
       else
         flash[:error] = "Invalid media 'type' specified. Instead we are showing all types of media."
       end
     end
     if params[:year_released]
-      # TODO
-    end
-    if params[:year_recorded]
-      #TODO
+      year_released = params[:year_released].to_i
+      if year_released > 1900
+        from = Date.new(year_released, 1, 1)
+        to = Date.new(year_released, 12, 31)
+        @media = @media.where(released_on: from..to)
+      end
     end
     
     @current_year = Date.today.year

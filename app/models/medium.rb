@@ -18,7 +18,7 @@ class Medium < ActiveRecord::Base
 
   belongs_to :provider, :class_name => "MediaProvider", :foreign_key => "media_provider_id"
   
-  attr_accessible :name, :description, :form, :provider, :captions, :analysis, :source_url
+  attr_accessible :name, :description, :form, :provider, :captions, :analysis, :source_url, :released_on
   
   # Validations
   validates_presence_of :name

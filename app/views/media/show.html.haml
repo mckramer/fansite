@@ -9,8 +9,8 @@
   %p 
     Courtesy of 
     = link_to @medium.provider.name, @medium.provider.homepage_url
-    Link to content:
-    = link_to @medium.provider.name, content_url_for(@medium)
+    &rarr;
+    = link_to "Original content", content_url_for(@medium)
 %ul.tabs{ "data-tabs" => "tabs" }
   %li.active= link_to 'Description', '#description'
   %li= link_to 'Lyrics', '#captions'

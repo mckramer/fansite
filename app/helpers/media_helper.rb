@@ -66,7 +66,7 @@ module MediaHelper
   # Used for linking back to website
   def content_url_for(media)
     url = nil
-    if media.content_url
+    if !media.content_url.blank?
       # There is a custom url
       url = media.content_url
     elsif media.provider

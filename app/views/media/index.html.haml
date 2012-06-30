@@ -8,12 +8,11 @@
       %ul
         - Medium.form_options.each do |key, value|
           %li= link_to value.titleize, media_type_path(key)
-    %li 
-      = t('.filter.recorded_on')
+    %li
+      = t('.filter.released_on')
       %ul
         - 3.times do |index|
-          %li= link_to @current_year-index, "#{media_path}?year_recorded=#{@current_year-index}"
-    %li= t('.filter.released_on')
+          %li= link_to @current_year-index, "#{media_path}/released/#{@current_year-index}"
 - unless @media.empty?
   %ul.media-grid
     - @media.each do |medium|

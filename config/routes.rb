@@ -9,6 +9,7 @@ Fansite::Application.routes.draw do
   
   resources :media
   match 'media/type/:form' => 'media#index'
+  match 'media/released/:year_released' => 'media#index'
   
   # resources :media_providers
   
