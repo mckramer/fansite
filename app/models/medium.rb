@@ -1,7 +1,7 @@
 # -- Attributes --
 # name, string
 # description, text
-# type, string => image, music, video
+# form, string => image, music, video
 # belongs_to media_provider
 # provider_media_id, string
 # source_url, string
@@ -18,6 +18,9 @@ class Medium < ActiveRecord::Base
 
   belongs_to :provider, :class_name => "MediaProvider", :foreign_key => "media_provider_id"
   
+  attr_accessible :name, :description, :form, :provider, :captions, :analysis, :source_url
+  
+  # Validations
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :form
@@ -31,6 +34,8 @@ class Medium < ActiveRecord::Base
     I18n.t('media.types')
   end
   
+  ##
+  # Retrieve random medium
   def self.random(sample_size = 3)
     if count == 0
       nil
@@ -43,13 +48,11 @@ class Medium < ActiveRecord::Base
   
   private
   
+  ##
+  # Validates presence of URLs for the media
   def validates_presence_of_urls
-    if self.provider_media_id.blank?
-      if self.source_url.blank? || self.thumbnail_url.blank? || self.content_url.blank?
-        false
-      else
-        true
-      end
+    if provider_media_id.blank?
+      !( source_url.blank? || thumbnail_url.blank? || content_url.blank? )
     else
       true
     end

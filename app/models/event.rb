@@ -4,6 +4,8 @@ class Event < ActiveRecord::Base
 
   belongs_to :location
   
+  attr_accessible :name, :description, :teaser, :location, :category, :start_at, :end_at, :all_day
+  
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :teaser

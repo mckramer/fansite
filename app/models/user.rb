@@ -1,9 +1,18 @@
+##
+# The user
+#
+# Attributes
+#   1. username
+#   2. name
+#
 class User < ActiveRecord::Base
 
   #before_save :blacklist
 
   has_many :authentications
   has_many :updates
+  
+  attr_accessible :username, :email, :name, :dob, :gender
   
   # username*, name, email*, dob, (gender -> add)
   
