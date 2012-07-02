@@ -4,6 +4,8 @@ body.events {
 
 table.event-calendar {
   border: 1px solid #ccc;
+  width: 100%;
+  
   thead, tfoot {
     th, td {
       text-align: center;
@@ -31,6 +33,9 @@ table.event-calendar {
     
   }
   tbody {
+    tr, td {
+      vertical-align: top;
+    }
     tr {
       height: 110px;
     }

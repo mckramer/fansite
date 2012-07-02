@@ -1,11 +1,22 @@
-$main-color: #AEC6CF;
+$main-color: #aec6cf;
+$main-color-red: red($main-color);
+$main-color-blue: blue($main-color);
+$main-color-green: green($main-color);
+$secondary-color: #ffd1dc;
+
+// Scaffolding
+$bodyBackground: lighten($main-color, 20%);
 
 // Links
 $linkColor: #00438a;
 
-$body-background: lighten($main-color, 20%);
-
+// Typography
 $sansFontFamily: JunctionRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$baseFontFamily: $sansFontFamily;
+
+// Buttons
+$btnPrimaryBackground:              darken($main-color, 10%);
+$btnPrimaryBackgroundHighlight:     $main-color;
 
 // Dropdowns
 $dropdownBackground:            $main-color;

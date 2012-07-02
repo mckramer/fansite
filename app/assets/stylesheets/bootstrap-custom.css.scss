@@ -1,55 +1,5 @@
-@font-face {
-    font-family: 'AngelinaRegular';
-    src: url('angelina/angelina-webfont.eot');
-    src: url('angelina/angelina-webfont.eot?#iefix') format('embedded-opentype'),
-          url('angelina/angelina-webfont.woff') format('woff'),
-          url('angelina/angelina-webfont.ttf') format('truetype'),
-          url('angelina/angelina-webfont.svg#AngelinaRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'JunctionRegular';
-    src: url('junction/Junction-webfont.eot');
-    src: url('junction/Junction-webfont.eot?#iefix') format('embedded-opentype'),
-          url('junction/Junction-webfont.woff') format('woff'),
-          url('junction/Junction-webfont.ttf') format('truetype'),
-          url('junction/Junction-webfont.svg#JunctionRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'ArchitectsDaughter';
-    src: url('architects-daughter/ArchitectsDaughter-webfont.eot');
-    src: url('architects-daughter/ArchitectsDaughter-webfont.eot?#iefix') format('embedded-opentype'),
-         url('architects-daughter/ArchitectsDaughter-webfont.woff') format('woff'),
-         url('architects-daughter/ArchitectsDaughter-webfont.ttf') format('truetype'),
-         url('architects-daughter/ArchitectsDaughter-webfont.svg#ArchitectsDaughterRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-$main-color: #AEC6CF;
-$main-color-red: red($main-color);
-$main-color-blue: blue($main-color);
-$main-color-green: green($main-color);
-$secondary-color: #FFD1DC;
-
-.brand {
-  font-family: AngelinaRegular;
-}
-.navbar .brand {
-  font-size: 28px;
-  padding: 7px 20px 5px 20px;
-}
-
-html, body {
-  background-color: lighten($main-color, 20%);
-  font-family: JunctionRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
 body {
-  padding-top: 40px; /* 40px to make the container go all the way to the bottom of the navbar */
+  padding-top: 40px;
 }
 body.display {
   padding-top: 60px;
@@ -65,6 +15,24 @@ footer [class*="span"] {
 .container > footer p {
   text-align: center; /* center align it with the container */
 }
+
+// -------------
+// Custom navbar
+// -------------
+
+.brand {
+  font-family: AngelinaRegular, serif;
+}
+.navbar {
+  .brand {
+    font-size: 28px;
+    padding: 7px 20px 5px 20px;
+  }
+  .btn {
+    border: 0;
+  }
+}
+
 .navbar div > ul .menu-dropdown .divider, 
 .nav .menu-dropdown .divider, 
 .navbar div > ul .dropdown-menu .divider, 
@@ -89,9 +57,6 @@ footer [class*="span"] {
   margin: -20px -20px 20px;
 }
 
-.navbar .btn {
-  border: 0;
-}
 form .clearfix .field_with_errors > label, form .clearfix .field_with_errors .help-block, form .clearfix .field_with_errors .help-inline {
   color: #b94a48;
 }
@@ -158,19 +123,7 @@ footer {
     padding: 8px 5px;
   }
 }
-.btn.primary {
-  background-color: darken($main-color, 10%);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(lighten($main-color, 10%)), color-stop(25%, lighten($main-color, 10%)), to($main-color));
-  /* background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, $main-color); */
-  background-image: -moz-linear-gradient(top, lighten($main-color, 10%), $main-color 25%, darken($main-color, 10%));
-  background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, $main-color);
-  background-image: -o-linear-gradient(#ffffff, #ffffff 25%, $main-color);
-  background-image: linear-gradient(#ffffff, #ffffff 25%, $main-color);
-  
-  &:hover {
-    background-image: none;
-  }
-}
+
 .popover.top .arrow {
   border-top-color: darken($main-color, 30%);
 }

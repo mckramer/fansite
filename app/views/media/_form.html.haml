@@ -41,8 +41,8 @@
       = f.label :released_on
       .input= f.date_select :released_on
   .actions.well
-    = f.submit class: 'btn success'
+    = f.submit class: 'btn btn-success'
     - if @medium.new_record?
-      = link_to "Cancel, and head back to the rest of the media", media_path, class: 'btn danger'
+      = link_to "Cancel, and head back to the rest of the media", media_path, class: 'btn btn-danger'
     - else
-      = link_to "Cancel, and return to the item", @medium, class: 'btn danger'
+      = link_to "Cancel, and return to the item", @medium, class: 'btn btn-danger'
