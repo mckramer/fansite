@@ -1,0 +1,26 @@
+$main-color: #AEC6CF;
+
+// Links
+$linkColor: #00438a;
+
+$body-background: lighten($main-color, 20%);
+
+$sansFontFamily: JunctionRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Dropdowns
+$dropdownBackground:            $main-color;
+$dropdownBorder:                darken($main-color, 20%);
+$dropdownLinkColorHover:        #f0f0f0;
+$dropdownLinkBackgroundHover:   darken($main-color, 10%);
+
+// Navbar
+$navbarBackground: darken($main-color, 12%);
+$navbarBackgroundHighlight: $main-color;
+
+$navbarLinkColor: #f5f5f5;
+$navbarBrandColor: $navbarLinkColor;
+
+// Hero
+$heroUnitBackground:    #444;
+$heroUnitHeadingColor:  $white;
+$heroUnitLeadColor:     $white;
