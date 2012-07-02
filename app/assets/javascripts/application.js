@@ -1,14 +1,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require bootstrap
 
 $(function () {
   $("a[rel*=popover]").popover({
     offset: 10,
     delayIn: 50,
-    placement: 'below'
+    placement: 'bottom'
   });
-  $("[rel*=twipsy]").twipsy({
-    placement: 'below'
-  });
+  $("[rel*=tooltip]").tooltip({
+    placement: 'bottom'
+  });  
 });

@@ -14,7 +14,7 @@
         - 3.times do |index|
           %li= link_to @current_year-index, "#{media_path}/released/#{@current_year-index}"
 - unless @media.empty?
-  %ul.media-grid
+  %ul.thumbnails
     - @media.each do |medium|
       %li= thumbnail_for(medium)
 - else

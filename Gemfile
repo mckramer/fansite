@@ -30,6 +30,8 @@ end
 gem 'haml-rails'
 gem 'jquery-rails'
 
+gem 'bootstrap-sass', '~> 2.0.3.1'
+
 group :development do
 
 end

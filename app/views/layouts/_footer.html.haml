@@ -1,14 +1,14 @@
 .row
-  .span5 
+  .span4
     %h2.brand= t('site_title')
     %p= t('site_tagline')
     %p= link_to_twitter t('twitter')
     %p= link_to_facebook t('facebook')
     %p= link_to t('website'), "http://#{t('website')}"
     %p= link_to t('website2'), "http://#{t('website2')}"
-  .span4
+  .span3
     %nav= render 'layouts/nav'    
-  .span5
+  .span3
     %p Now you too can be a fan.
     %p
       &rarr;

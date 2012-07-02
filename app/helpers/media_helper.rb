@@ -44,7 +44,7 @@ module MediaHelper
   
   # Generates linked thumbnail to media path
   def thumbnail_for(media, height = 150, width = 185)
-    link_to image_tag(thumbnail_url_for(media, height, width)), media, { :class => "thumbnail", :rel => "popover", :data => { :content => media.teaser, "original-title" => media.name} }
+    link_to image_tag(thumbnail_url_for(media, height, width)), media, { class: "thumbnail", rel: "popover", data: { "content" => media.teaser, "original-title" => media.name } }
   end
   
   # Generates url to thumbnail for a given medium

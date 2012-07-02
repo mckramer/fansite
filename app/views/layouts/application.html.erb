@@ -6,7 +6,7 @@
 
   <body class="main">
     <div id="page-top"></div>
-    <div class="topbar">
+    <div class="navbar navbar-fixed-top">
       <%= render 'layouts/header' %>
     </div>
 
@@ -17,11 +17,11 @@
           <h1><%= yield :page_title %>&nbsp;&nbsp;<small><%= yield :page_tagline %></small></h1>
         </div>
         <div class="row">
-          <div class="span11">
+          <div class="span8">
             <%= render 'layouts/alerts' %>
             <%= yield %>
           </div>
-          <div class="span5">
+          <div class="span3">
             <% if content_for :page_nav %>
               <%= yield(:page_nav) %>
             <% end %>
@@ -38,6 +38,6 @@
       </footer>
 
     </div> <!-- /container -->
-
+    
   </body>
 </html>
