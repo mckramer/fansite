@@ -3,7 +3,7 @@ body.events {
 }
 
 table.event-calendar {
-  border: 1px solid #ccc;
+  margin-bottom: 25px;
   width: 100%;
   
   thead, tfoot {
@@ -99,7 +99,7 @@ table.event-calendar {
 
 .featured-event {
   background-color: $secondary-color;
-  -moz-border-radius: 5px;
+  @include border-radius(6px);
   padding: 20px;
   
   h3 {

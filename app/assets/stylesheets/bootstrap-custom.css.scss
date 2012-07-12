@@ -57,23 +57,28 @@ footer [class*="span"] {
   margin: -20px -20px 20px;
 }
 
-form .clearfix .field_with_errors > label, form .clearfix .field_with_errors .help-block, form .clearfix .field_with_errors .help-inline {
+form .control-group .field_with_errors > label, form .control-group .field_with_errors .help-block, form .control-group .field_with_errors .help-inline {
   color: #b94a48;
 }
-form .clearfix .field_with_errors input, form .clearfix .field_with_errors textarea {
+form .control-group .field_with_errors input, 
+form .control-group .field_with_errors textarea {
   color: #b94a48;
   border-color: #ee5f5b;
+
+  &:focus {
+    border-color: #e9322d;
+    @include box-shadow(0 0 6px #f8b9b7);
+  }
 }
-form .clearfix .field_with_errors input:focus, form .clearfix .field_with_errors textarea:focus {
-  border-color: #e9322d;
-  -webkit-box-shadow: 0 0 6px #f8b9b7;
-  -moz-box-shadow: 0 0 6px #f8b9b7;
-  box-shadow: 0 0 6px #f8b9b7;
-}
-form .clearfix .field_with_errors .input-prepend .add-on, form .clearfix .field_with_errors .input-append .add-on {
-  color: #b94a48;
-  background-color: #fce6e6;
-  border-color: #b94a48;
+form .control-group {
+  .field_with_errors + .controls {
+    .input-append .add-on,
+    .input-preprend .add-on {
+      color: #b94a48;
+      background-color: #fce6e6;
+      border-color: #b94a48;
+    }
+  }
 }
 .input.date select {
   width: 100px;

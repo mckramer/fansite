@@ -5,7 +5,7 @@
 @import "posts";
 
 img.avatar {
-  border-radius:5px;
+  @include border-radius(3px);
 }
 .clear {
   clear: both;

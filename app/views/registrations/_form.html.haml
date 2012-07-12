@@ -1,46 +1,53 @@
-= form_for(@user, { url: registrations_path }) do |f|
+= form_for(@user, { url: registrations_path, html: { class: "form-horizontal" } }) do |f|
   - if @user.errors.any?
-    #error_explanation.alert-message.block-message.error
+    .alert.alert-error
       %h2
         = pluralize(@user.errors.count, "error")
         prevented this from being saved
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-  .field.clearfix
-    = f.label :username
-    .input
-      .input-prepend
-        %span.add-on @
-        = f.text_field :username, placeholder: "username"
-      %span.help-block Choose a unique username. Required.
-  .field.clearfix
-    = f.label :name
-    .input
-      = f.text_field :name
-      %span.help-block Your name. Required.
-  .field.clearfix
-    = f.label :email
-    .input
-      = f.email_field :email
-      %span.help-block Optionally provide an email address.
-  .field.clearfix
-    = f.label :gender
-    .input
-      = f.select :gender, @genders
-      %span.help-block Optionally specify your gender
-  #custom-gender.field.clearfix{ :style => "display:none" }
-    .input
-      = f.text_field :gender, :disabled => true
-      %span.help-block Specify your gender
-  .field.clearfix
-    = f.label :dob, t('model.user.dob.display')
-    .input.date
-      = f.date_select :dob, prompt: true
-      %span.help-block Optionally provide your birth date
-  %div
-    = hidden_field_tag "authentication_provider", @user.authentications.first.provider
-    = hidden_field_tag "authentication_uid", @user.authentications.first.uid
-  .actions.well
-    = f.submit 'Register!', class: 'btn large primary'
-    = link_to 'Cancel registration', root_path, class: 'btn large'
+  %fieldset
+    .field.control-group
+      = f.label :username, class: 'control-label'
+      .controls
+        .input-prepend.input-append
+          %span.add-on> @
+          = f.text_field :username, placeholder: "username"
+          %span.add-on{ rel: 'tooltip', title: 'Required'}>
+            %i.icon-asterisk
+        %span.help-block Your unique username.
+    .field.control-group
+      = f.label :name, class: 'control-label'
+      .controls
+        .input-prepend.input-append
+          %span.add-on>
+            %i.icon-user
+          = f.text_field :name, placeholder: "name"
+          %span.add-on{ rel: 'tooltip', title: 'Required'}>
+            %i.icon-asterisk
+        %span.help-block Your name.
+    .field.control-group
+      = f.label :email, class: 'control-label'
+      .controls
+        .input-prepend
+          %span.add-on>
+            %i.icon-envelope
+          = f.email_field :email, placeholder: "email"
+        %span.help-block Optionally provide an email address.
+    .field.control-group
+      = f.label :gender, class: 'control-label'
+      .controls
+        = f.select :gender, @genders
+        %span.help-block Optionally specify your gender.
+    .field.control-group
+      = f.label :dob, t('model.user.dob.display'), class: 'control-label'
+      .controls.date
+        = f.date_select :dob, { prompt: true }, { class: 'span2' }
+        %span.help-block Optionally provide your birth date.
+    %div
+      = hidden_field_tag "authentication_provider", @user.authentications.first.provider
+      = hidden_field_tag "authentication_uid", @user.authentications.first.uid
+    .actions.well
+      = f.submit 'Register!', class: 'btn btn-large btn-primary'
+      = link_to 'Cancel registration', root_path, class: 'btn btn-large'

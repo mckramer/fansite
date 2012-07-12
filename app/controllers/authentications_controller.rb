@@ -12,14 +12,14 @@ class AuthenticationsController < ApplicationController
       # Authentication has already been setup for the user.
       flash[:success] = t('notice.signed_in')
       sign_in(authentication.user)
-      redirect_to request.env["omniauth.origin"] || root_path
+      redirect_to request.env["omniauth.origin"] || root_path, :only_path => true
       
     elsif current_user
       
       # User has already logged in, but authentication is new
       current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
       flash[:success] = t('notice.new_authentication')
-      redirect_to request.env["omniauth.origin"] || authentications_path
+      redirect_to request.env["omniauth.origin"] || authentications_path, :only_path => true
       
     else
       
@@ -29,7 +29,7 @@ class AuthenticationsController < ApplicationController
       if user.save
         flash[:success] = t('notice.new_user')
         sign_in(user)
-        redirect_to request.env["omniauth.origin"] || authentications_path
+        redirect_to request.env["omniauth.origin"] || authentications_path, :only_path => true
       else
         session[:omniauth] = omniauth.except(:extra)
         # how to deal with sign in here
