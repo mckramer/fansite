@@ -1,56 +1,63 @@
-= form_for(@user) do |f|
+= form_for(@user, html: { class: 'form-horizontal' }) do |f|
   - if @user.errors.any?
-    #error_explanation.alert-message.block-message.error
+    .alert.alert-error
       %h2
         = pluralize(@user.errors.count, "error")
         prevented this from being saved
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-  .field.clearfix
-    = f.label :username
-    .input
-      .input-prepend 
-        %span.add-on @
-        = f.text_field :username, placeholder: "username"
-      %span.help-block Choose a unique username. Required.
-  .field.clearfix
-    = f.label :name
-    .input
-      = f.text_field :name
-      %span.help-block Your name. Required.
-  .field.clearfix
-    = f.label :email
-    .input
-      = f.email_field :email
-      %span.help-block Optionally provide an email address.
-  .field.clearfix
-    = f.label :gender
-    .input
-      = f.collection_select :gender, @gender_options, :to_s, :humanize, :include_blank => 'Please select'
-      %span.help-block Optionally specify your gender
-  #custom-gender.field.clearfix{ :style => "display:none" }
-    .input
-      = f.text_field :gender, :disabled => true
-      %span.help-block Specify your gender
-  .field.clearfix
-    = f.label :dob, t('model.user.dob.display')
-    .input.date
-      = f.date_select :dob, prompt: true
-      %span.help-block Optionally provide your birth date
-  .field.clearfix
-    = f.label :locale
-    .input
-      = f.select :locale, options_for_select(@locales), prompt: true
-      %span.help-block Optionally provide your language
-  .field.clearfix
-    = f.label :time_zone
-    .input
-      = f.time_zone_select :time_zone, @time_zones, prompt: true
-      %span.help-block Optionally provide your local time zone. Otherwise all times will be displayed as UTC.
-  .actions.well
-    = f.submit 'Save profile', class: 'btn large primary'
-    - if @user.new_record?
-      = link_to 'Cancel, do not create account', root_path, class: 'btn large danger'
-    - else
-      = link_to 'Cancel, do not update profile', @user, class: 'btn large danger'
+  %fieldset
+    .field.control-group
+      = f.label :username, class: 'control-label'
+      .controls
+        .input-prepend.input-append
+          %span.add-on> @
+          = f.text_field :username, placeholder: "username"
+          %span.add-on{ rel: 'tooltip', title: 'Required'}>
+            %i.icon-asterisk
+        %span.help-block Your unique username.
+    .field.control-group
+      = f.label :name, class: 'control-label'
+      .controls
+        .input-prepend.input-append
+          %span.add-on>
+            %i.icon-user
+          = f.text_field :name, placeholder: "name"
+          %span.add-on{ rel: 'tooltip', title: 'Required'}>
+            %i.icon-asterisk
+        %span.help-block Your name.
+    .field.control-group
+      = f.label :email, class: 'control-label'
+      .controls
+        .input-prepend
+          %span.add-on>
+            %i.icon-envelope
+          = f.email_field :email, placeholder: "email"
+        %span.help-block Optionally provide an email address.
+    .field.control-group
+      = f.label :gender, class: 'control-label'
+      .controls
+        = f.collection_select :gender, @gender_options, :to_s, :humanize, :include_blank => 'Please select'
+        %span.help-block Optionally specify your gender.
+    .field.control-group
+      = f.label :dob, t('model.user.dob.display'), class: 'control-label'
+      .controls.date
+        = f.date_select :dob, prompt: true
+        %span.help-block Optionally provide your birth date.
+    .field.control-group
+      = f.label :locale, class: 'control-label'
+      .controls
+        = f.select :locale, options_for_select(@locales), prompt: true
+        %span.help-block Optionally provide your language.  You can also change the language by using the top menu dropdown.
+    .field.control-group
+      = f.label :time_zone, class: 'control-label'
+      .controls
+        = f.time_zone_select :time_zone, @time_zones, prompt: true
+        %span.help-block Optionally provide your local time zone. Otherwise all times will be displayed as UTC.
+    .actions.well
+      = f.submit 'Save profile', class: 'btn btn-success btn-large'
+      - if @user.new_record?
+        = link_to 'Cancel, do not create account', root_path, class: 'btn btn-danger btn-large'
+      - else
+        = link_to 'Cancel, do not update profile', @user, class: 'btn btn-danger btn-large'

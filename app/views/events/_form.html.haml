@@ -1,4 +1,4 @@
-= form_for(@event) do |f|
+= form_for(@event, html: { class: 'form-horizontal' }) do |f|
   - if @event.errors.any?
     #error_explanation
       %h2
@@ -9,38 +9,61 @@
           %li= msg
   %fieldset
     %legend
-    .field.clearfix
+    .field.control-group
       = f.label :name
-      .input= f.text_field :name
-    .field.clearfix
+      .controls
+        .input-append
+          = f.text_field :name
+          %span.add-on{ rel="tooltip", title="Required" }
+            %i.icon-asterisk
+    .field.control-group
       = f.label :teaser
-      .input= f.text_field :teaser
-    .field.clearfix
+      .controls
+        .input-append
+          = f.text_field :teaser
+          %span.add-on{ rel="tooltip", title="Required" }
+            %i.icon-asterisk
+        %p.help-block Provide a teaser that will be shown around the site as a quick explanation of the event. Make it sound good!
+    .field.control-group
       = f.label :description
-      .input= f.text_area :description
-    .field.clearfix
+      .controls
+        .input-append
+          = f.text_area :description, rows: 10
+          %span.add-on{ rel="tooltip", title="Required" }
+            %i.icon-asterisk
+        %p.help-block Provide a detailed description of the event here
+    .field.control-group
       = f.label :location_id
-      .input= f.collection_select :location_id, @locations, :id, :name_with_address
-    .field.clearfix
+      .controls
+        .input-append
+          = f.collection_select :location_id, @locations, :id, :name_with_address
+          %span.add-on{ rel="tooltip", title="Required" }
+            %i.icon-asterisk
+        %p.help-block Where is this happening event taking place? Hopefully somewhere cool...
+    .field.control-group
       = f.label :category
-      .input= f.collection_select :category, Event::CATEGORY_OPTIONS, :to_s, :humanize, prompt: true
+      .controls= f.collection_select :category, Event::CATEGORY_OPTIONS, :to_s, :humanize, prompt: true
     %p 
       The following times are localized to the following time zone:
       = Time.zone
-    .field.clearfix
+    .field.control-group
       = f.label :start_at
-      .input.datetime
+      .controls.datetime
         = f.datetime_select :start_at, minute_step: 15
         %span.help-block Choose a start date
-    .field.clearfix
+    .field.control-group
       = f.label :end_at
-      .input.datetime= f.datetime_select :end_at, minute_step: 15
-    .field.clearfix
+      .controls.datetime
+        = f.datetime_select :end_at, minute_step: 15
+        %p.help-block When does the event end?
+    .field.control-group
       = f.label :all_day
-      .input= f.check_box :all_day
+      .controls
+        = f.check_box :all_day
+        %p.help-block Is the event an all day event? This will cause the times above to be ignored.
   .actions.well
-    = f.submit class: 'btn btn-success'
+    = f.submit class: 'btn btn-large btn-success'
     - if @event.new_record?
-      = link_to "Cancel, and return to events", events_path, class: 'btn btn-danger'
+      = link_to "Cancel, and return to events", events_path, class: 'btn btn-large btn-danger'
     - else
-      = link_to "Cancel, and return to event", @event, class: 'btn btn-danger'
+      = link_to "Cancel, and return to event", @event, class: 'btn btn-large btn-danger'

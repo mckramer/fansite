@@ -24,8 +24,8 @@
       = f.label :user_id, class: 'control-label'
       .controls= f.collection_select :user_id, @users, :id, :username
   .actions.well
-    = f.submit class: "btn btn-primary btn-large"
+    = f.submit class: "btn btn-success btn-large"
     - unless @post.new_record?
-      = link_to 'Nevermind, back to the post', @post, class: 'btn btn-large'
+      = link_to 'Nevermind, back to the post', @post, class: 'btn btn-danger btn-large'
     - else
-      = link_to 'Nevermind, back to viewing the posts', posts_path, class: 'btn btn-large'
+      = link_to 'Nevermind, back to viewing the posts', posts_path, class: 'btn btn-danger btn-large'

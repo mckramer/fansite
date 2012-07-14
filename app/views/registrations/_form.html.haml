@@ -43,11 +43,11 @@
     .field.control-group
       = f.label :dob, t('model.user.dob.display'), class: 'control-label'
       .controls.date
-        = f.date_select :dob, { prompt: true }, { class: 'span2' }
+        = f.date_select :dob, { prompt: true }
         %span.help-block Optionally provide your birth date.
     %div
       = hidden_field_tag "authentication_provider", @user.authentications.first.provider
       = hidden_field_tag "authentication_uid", @user.authentications.first.uid
     .actions.well
-      = f.submit 'Register!', class: 'btn btn-large btn-primary'
-      = link_to 'Cancel registration', root_path, class: 'btn btn-large'
+      = f.submit 'Register!', class: 'btn btn-primary btn-large'
+      = link_to 'Cancel registration', root_path, class: 'btn btn-danger btn-large'

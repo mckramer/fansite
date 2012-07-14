@@ -1,22 +1,24 @@
 - content_for :page_title, t('.title')
 - content_for :page_tagline, t('.subtitle')
 - unless @locations.empty?
-  %table
+  %table.table
     %thead
       %tr
         %th Name
         %th Address
-        %th Latitude
-        %th Longitude
+        %th
     %tbody
       - @locations.each do |location|
         %tr
-          %td= link_to location.name, location
+          %td
+            = link_to location.name, location
           %td= location.address
-          %td= location.latitude
-          %td= location.longitude
+          %td
+            - unless location.url.blank?
+              = link_to location.url, { rel: 'tooltip', title: 'Go to their website (external)', data: { placement: 'right' } } do
+                %i.icon-globe
 - else
   %p= t '.no_results'
 - if can? :create, Location
   .links.well
-    = link_to 'New Location', new_location_path, class: 'btn'
+    = link_to 'Add new location', new_location_path, class: 'btn'

@@ -1,6 +1,6 @@
 = form_for(@medium, html: { class: 'form-horizontal' }) do |f|
   - if @medium.errors.any?
-    #error_explanation.alert-message.block-message.error
+    .alert.alert-error
       %h2
         = pluralize(@medium.errors.count, "error")
         prohibited this medium from being saved
@@ -72,8 +72,8 @@
         = f.date_select :released_on, {}, { class: 'span2' }
         %p.help-block The date that the media was released.
   .actions.well
-    = f.submit class: 'btn btn-large btn-success'
+    = f.submit class: 'btn btn-success btn-large'
     - if @medium.new_record?
-      = link_to "Cancel, and head back to the rest of the media", media_path, class: 'btn btn-large btn-danger'
+      = link_to "Cancel, and head back to the rest of the media", media_path, class: 'btn btn-danger btn-large'
     - else
-      = link_to "Cancel, and return to the item", @medium, class: 'btn btn-large btn-danger'
+      = link_to "Cancel, and return to the item", @medium, class: 'btn btn-danger btn-large'

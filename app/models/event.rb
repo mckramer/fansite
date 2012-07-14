@@ -10,6 +10,8 @@ class Event < ActiveRecord::Base
   validates_presence_of :description
   validates_presence_of :teaser
   validates_presence_of :location
+  validates_presence_of :start_at
+  validates_presence_of :end_at
   validate :start_at_and_end_at
   
   scope :upcoming, lambda {

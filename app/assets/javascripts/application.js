@@ -11,5 +11,5 @@ $(function () {
   });
   $("[rel*=tooltip]").tooltip({
     placement: 'bottom'
-  });  
+  });
 });

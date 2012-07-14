@@ -1,6 +1,6 @@
-= form_for(@location) do |f|
+= form_for(@location, html: { class: 'form-horizontal' }) do |f|
   - if @location.errors.any?
-    #error_explanation
+    .alert.alert-error
       %h2
         = pluralize(@location.errors.count, "error")
         prohibited this location from being saved:
@@ -8,27 +8,28 @@
         - @location.errors.full_messages.each do |msg|
           %li= msg
   %fieldset
-    %legend
-    .field.clearfix
+    .field.control-group
       = f.label :name
-      .input= f.text_field :name
-    .field.clearfix
+      .controls= f.text_field :name
+    .field.control-group
       = f.label :url
-      .input= f.text_field :url
-    .field.clearfix
+      .controls= f.text_field :url
+    .field.control-group
       = f.label :address
-      .input= f.text_field :address
-    .field.clearfix
+      .controls= f.text_field :address
+    .field.control-group
       = f.label :latitude
-      .input
+      .controls
         = f.text_field :latitude, disabled: true
         %span.help-block Calculated from address
-    .field.clearfix
+    .field.control-group
       = f.label :longitude
-      .input
+      .controls
         = f.text_field :longitude, disabled: true
         %span.help-block Calculated from address
   .actions.well
-    = f.submit class: 'btn primary'
+    = f.submit class: 'btn btn-success btn-large'
     - if @location.new_record?
-      = link_to "Cancel, and return to locations", locations_path
+      = link_to "Cancel, and return to locations", locations_path, class: 'btn btn-warning btn-large'
+    - else
+      = link_to "Cancel, and return to location", @location, class: 'btn btn-warning btn-large'

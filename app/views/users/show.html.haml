@@ -5,7 +5,7 @@
 .profile_picture{style: "float:right; margin-right: 15px; margin-top: 15px;"}= gravatar_for @user, 100
 %h2 Quick hits
 %p Here's the information in the profile
-%table
+%table.table.table-striped
   %tbody
     %tr
       %th Name
@@ -29,7 +29,8 @@
       %td 
         %span.stand-back 
           The interhighway.
-          %a{ :href => "#", "data-controls-modal" => "modal-for-youtube", "data-backdrop" => "static"} &rarr;
+          = link_to "#modal-for-youtube", data: { toggle: 'modal', backdrop: "static" } do
+            %i.icon-road
     %tr
       %th Bio
       %td
@@ -44,7 +45,7 @@
       %th Last activity
       %td= l @user.updated_at.to_date, format: :long
 %h2 Authentications
-%table.authentications
+%table.authentications.table.table-striped
   %thead
     %tr
       %th
@@ -56,12 +57,17 @@
         %td= authentication_image_for auth
         %td= auth.provider.titleize
         %td= l auth.created_at.to_date, format: :long
-
-.links.actions
-  .btn.large= link_to 'Edit your profile', edit_user_path(@user)
-#modal-for-youtube.modal.hide.fademodal-from-dom{:style=>'display:none;'}
+.well
+  - if can? :update, @user
+    = link_to edit_user_path(@user), class: 'btn btn-large' do
+      %i.icon-pencil
+      = (current_user == @user)? 'Edit your profile' : "Edit this user's profile"
+    = link_to users_path, class: 'btn btn-large' do
+      %i.icon-share-alt
+      Return to viewing users
+#modal-for-youtube.modal.hide.fade
   .modal-header
-    %a.close{ href: "#" } ×
+    %button.close{ type: 'button', 'data-dismiss' => 'modal' } ×
     %h3 The interhighway
   .modal-body
     %div{ style: "margin-left: 55px;"}
