@@ -51,3 +51,10 @@ en:
   twitter: alanaleeders
   website: alanaleeders.com
   website2: alanaleeders.org
+  locales:
+    -
+      - 'English'
+      - 'en'
+    -
+      - 'English (US)'
+      - 'en-US'

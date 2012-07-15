@@ -25,12 +25,20 @@
         - else
           = @user.age
     %tr
-      %th Location
+      %th 
+        %i.icon-map-marker
+        Location
       %td 
         %span.stand-back 
           The interhighway.
           = link_to "#modal-for-youtube", data: { toggle: 'modal', backdrop: "static" } do
             %i.icon-road
+    %tr
+      %th
+        %i.icon-time
+        Timezone
+      %td
+        = Time.zone
     %tr
       %th Bio
       %td

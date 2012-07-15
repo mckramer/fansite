@@ -3,23 +3,24 @@
 %div{class: "event #{@event.category}"}
   %h2= @event.name
   %h3= @event.teaser
-  %p= markdown_to_html(@event.description)
-  %p 
-    %b Time zone:
-    = Time.zone
+  .description
+    = markdown_to_html(@event.description)
   %p
-    %b Starts at:
+    %i.icon-calendar
     = l @event.start_at
-  %p
-    %b Ends at:
+    &rarr;
     = l @event.end_at
   %p
-    %b Location:
+    %i.icon-map-marker
     = link_to_if can?(:read, @event.location), @event.location.name, @event.location
   %p
     %b Category:
     = @event.category.humanize
-.links.well
+.well
   - if can? :update, @event
-    = link_to 'Edit', edit_event_path(@event), class: 'btn'
-  = link_to 'Back', events_path, class: 'btn'
+    = link_to edit_event_path(@event), class: 'btn' do
+      %i.icon-pencil
+      Edit this event
+  = link_to events_path, class: 'btn' do
+    %i.icon-share-alt
+    Back to checking out the events
