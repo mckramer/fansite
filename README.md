@@ -28,6 +28,7 @@ Overwrite any of the i18n to customize the site. Encourage users to submit new t
 2. Add support for Facebook login
 3. Translate app into gem with ability to pick and choose features to use
 4. Extract event calendar to gem
+5. Add tagging to `media` at a minimum, extend to `posts` and `events`
 
 ## How to report an issue?
 Use the issue tracker on Github.

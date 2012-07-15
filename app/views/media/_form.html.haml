@@ -8,68 +8,122 @@
         - @medium.errors.full_messages.each do |msg|
           %li= msg
   %fieldset
-    .field.control-group
+    .control-group
       = f.label :name, class: 'control-label'
       .controls
         .input-append
           = f.text_field :name, placeholder: 'The name of the media'
           %span.add-on{ rel: 'tooltip', title: 'Required' }>
             %i.icon-asterisk
-    .field.control-group
+    .control-group
       = f.label :description, class: 'control-label'
       .controls
-        .input-append
+        .input-prepend.input-append
+          %span.add-on>
+            %i.icon-align-justify
           = f.text_area :description, rows: 10
-          .add-on{ rel: 'tooltip', title: 'Required' }>
+          %span.add-on{ rel: 'tooltip', title: 'Required' }>
             %i.icon-asterisk
         %p.help-block The description of the medium
-    .field.control-group
+    .control-group
       = f.label :teaser, class: 'control-label'
       .controls
-        = f.text_area :teaser, rows: 5
+        .input-prepend
+          %span.add-on>
+            %i.icon-align-justify
+          = f.text_area :teaser, rows: 5
         %p.help-block The teaser is used on popovers and highlights.
-    .field.control-group
-      = f.label :form, class: 'control-label'
+    .control-group
+      = f.label :form, "Type", class: 'control-label'
       .controls
-        .input-append
-          = f.select :form, Medium.form_options.map { |key, value| [ value.titleize, key.to_s ] } , :prompt => true
-          .add-on{ rel: 'tooltip', title: 'Required' }>
-            %i.icon-asterisk
+        .btn-group{ data: { toggle: 'buttons-radio', field: 'medium_form' } }
+          %button.btn{ type: 'button', value: 'music' }
+            %i.icon-music
+            Music
+          %button.btn{ type: 'button', value: 'video' }
+            %i.icon-film
+            Video
+          %button.btn{ type: 'button', value: 'image' }
+            %i.icon-picture
+            Image
+        = f.hidden_field :form
         %p.help-block The type of media. Ex: image or video.
     %hr
-    .field.control-group
+    .control-group
+      = f.label :captions, "Captions/Lyrics", class: 'control-label'
+      .controls
+        .input-prepend
+          %span.add-on>
+            %i.icon-align-justify
+          = f.text_area :captions, rows: 15
+        %p.help-block Only applicable for music and video media types
+    .control-group
+      = f.label :analysis, class: 'control-label'
+      .controls
+        .input-prepend
+          %span.add-on>
+            %i.icon-align-justify
+          = f.text_area :analysis, rows: 5
+        %p.help-block Only applicable for music and video media types
+    %hr
+    .control-group
       = f.label :media_provider_id, class: 'control-label'
       .controls
-        .input-append
+        .input-prepend.input-append
+          %span.add-on>
+            %i.icon-home
           = collection_select :medium, :media_provider_id, @providers, :id, :name, :prompt => true
-          .add-on{ rel: 'tooltip', title: 'Required' }>
+          %span.add-on{ rel: 'tooltip', title: 'Required' }>
             %i.icon-asterisk
         %p.help-block The host of the media.
     .field.control-group
-      = f.label :provider_media_id, class: 'control-label'
+      = f.label :provider_media_id, "ID from the media provider",  class: 'control-label'
       .controls
-        = f.text_field :provider_media_id
+        .input-prepend
+          %span.add-on>
+            %i.icon-tag
+          = f.text_field :provider_media_id
         %p.help-block The identifier used on the providers site. Ex: on YouTube, it would be the video id in the URL. (<code>dfg456fd</code> if the video was at: <code>http://youtube.com/watch?v=dfg456fd</code>)
     .field.control-group
       = f.label :source_url, class: 'control-label'
       .controls
-        = f.text_field :source_url
+        .input-prepend
+          %span.add-on>
+            %i.icon-bookmark
+          = f.text_field :source_url
         %p.help-block Override the media providers source URL generation. Useful for when URL does not follow a pattern.
     .field.control-group
       = f.label :thumbnail_url, class: 'control-label'
       .controls
-        = f.text_field :thumbnail_url
+        .input-prepend
+          %span.add-on>
+            %i.icon-bookmark
+          = f.text_field :thumbnail_url
         %p.help-block Override the media providers thumbnail URL generation. Useful for when URL does not follow a pattern.
     .field.control-group
       = f.label :content_url, class: 'control-label'
       .controls
-        = f.text_field :content_url
+        .input-prepend
+          %span.add-on>
+            %i.icon-bookmark
+          = f.text_field :content_url
         %p.help-block Override the media providers thumbnail URL generation. Useful for when URL does not follow a pattern.
     %hr
     .field.control-group
+      = f.label :recorded_on, "Recorded/taken on", class: 'control-label'
+      .controls
+        .input-prepend
+          %span.add-on>
+            %i.icon-calendar
+          = f.date_select :recorded_on, { prompt: true }, { class: 'span2' }
+        %p.help-block The date that the media was recorded.
+    .field.control-group
       = f.label :released_on, class: 'control-label'
       .controls
-        = f.date_select :released_on, {}, { class: 'span2' }
+        .input-prepend
+          %span.add-on>
+            %i.icon-calendar
+          = f.date_select :released_on, { prompt: true }, { class: 'span2' }
         %p.help-block The date that the media was released.
   .actions.well
     = f.submit class: 'btn btn-success btn-large'
@@ -77,3 +131,4 @@
       = link_to "Cancel, and head back to the rest of the media", media_path, class: 'btn btn-danger btn-large'
     - else
       = link_to "Cancel, and return to the item", @medium, class: 'btn btn-danger btn-large'
+= javascript_include_tag "media"

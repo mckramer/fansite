@@ -93,8 +93,10 @@ form .control-group {
 
 .hero-unit {
   background-image: url('bg/hero/1.jpg');
+  background-position-y: -110px;
+  background-size: 100%;
   min-height: 330px;
-  padding-right: 500px;
+  padding: 40px 600px 40px 40px;
 }
 
 .featured {
@@ -113,9 +115,11 @@ footer {
   }
 }
 .thumbnail {
-  img {
+  height: 150px;
+  width: 195px;
+  & > img {
     height: 150px;
-    width: 185px;
+    max-width: 185px;
   }
 }
 .tab-content {

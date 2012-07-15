@@ -1,0 +1,14 @@
+.media {
+  .medium {
+  	text-align: center;
+	&.image {
+	  img {
+	    max-height: 500px;
+	    max-width: 100%;
+	  }
+	}
+  }
+  .courtesy {
+  	text-align: right;
+  }
+}

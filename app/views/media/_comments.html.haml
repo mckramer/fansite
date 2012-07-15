@@ -1,0 +1,81 @@
+%h2 Comments
+.comments
+  %p Got something to say? Join the conversation below.
+  .comment
+    .actions.btn-group
+      = link_to "/thumbsUp", { class: 'btn', title: 'Like this comment', data: { toggle: 'tooltip' } } do
+        %i.icon-thumbs-up
+        10
+      = link_to "/thumbsDown", { class: 'btn', title: 'Disike this comment', data: { toggle: 'tooltip' } } do
+        %i.icon-thumbs-down
+        1
+      = link_to "/flag", { class: 'btn', title: 'Flag this comment as inappropriate', data: { toggle: 'tooltip' } } do
+        %i.icon-flag
+    %p I wish I could have come up with something better to say here. But this will have to do. Did you also enjoy this? Because I did. Very much so. Thanks so much for this.
+    .author
+      %span.user= link_to '@user', '/profile/user'
+      posted on
+      %span.date Jan 1st
+      at
+      %span.time 4:22pm
+  .comment
+    .actions.btn-group
+      = link_to "/thumbsUp", { class: 'btn btn-success disabled', title: 'You have already liked this comment', data: { toggle: 'tooltip' } } do
+        %i.icon-thumbs-up.icon-white
+        403
+      = link_to "/thumbsDown", { class: 'btn', title: 'Disike this comment', data: { toggle: 'tooltip' } } do
+        %i.icon-thumbs-down
+        22
+      = link_to "/flag", { class: 'btn', title: 'Flag this comment as inappropriate', data: { toggle: 'tooltip' } } do
+        %i.icon-flag
+    %p I wish I could have come up with something better to say here. This is lame.
+    .author
+      %span.user= link_to '@biggestFan', '/profile/user2'
+      posted on
+      %span.date Jan 8th
+      at
+      %span.time 4:01pm
+  .comment
+    .actions.btn-group
+      = link_to "/thumbsUp", { class: 'btn', title: 'Like this comment', data: { toggle: 'tooltip' } } do
+        %i.icon-thumbs-up
+        0
+      = link_to "/thumbsDown", { class: 'btn btn-danger disabled', title: 'You have already disliked this comment', data: { toggle: 'tooltip' } } do
+        %i.icon-thumbs-down.icon-white
+        83
+      = link_to "/flag", { class: 'btn', title: 'Flag this comment as inappropriate', data: { toggle: 'tooltip' } } do
+        %i.icon-flag
+    %p I wish I could have come up with something better to say here. This is lame.
+    .author
+      %span.user= link_to '@biggestFan', '/profile/user2'
+      posted on
+      %span.date Jan 8th
+      at
+      %span.time 4:01pm
+  - 2.times do |comment|
+    .comment
+      .actions.btn-group
+        = link_to "/thumbsUp", { class: 'btn', title: 'Like this comment', data: { toggle: 'tooltip' } } do
+          %i.icon-thumbs-up
+          0
+        = link_to "/thumbsDown", { class: 'btn', title: 'Disike this comment', data: { toggle: 'tooltip' } } do
+          %i.icon-thumbs-down
+          0
+        = link_to "/flag", { class: 'btn', title: 'Flag this comment as inappropriate', data: { toggle: 'tooltip' } } do
+          %i.icon-flag
+      %p I wish I could have come up with something better to say here. This is lame. Etiam vehicula luctus tellus nec facilisis. Fusce consequat tempor neque non congue. Mauris vel risus augue. Vivamus egestas dignissim nulla, vel tincidunt nisi porttitor sit amet. Donec quam velit, vulputate.
+      .author
+        %span.user= link_to '@user', '/profile/user'
+        posted on
+        %span.date Feb 3rd
+        at
+        %span.time 8:07pm
+  %hr
+  .comment-form
+    %form.well.form-inline
+      %textarea{ placeholder: "What do you want to say?", style: "width: 100%;" }
+      %div{ style: "float: right; margin-top: 5px;" }
+        %a.btn{ rel: "tooltip", title: "Add the comment" }
+          %i.icon-comment
+          Add the comment
+      .clear

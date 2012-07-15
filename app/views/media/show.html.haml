@@ -3,73 +3,81 @@
 .media
   %div{ class: "medium #{@medium.form}" }
     - if @medium.form == 'image'
-      %img{ src: source_url_for(@medium) }
+      %img{ src: source_url_for(@medium, nil, nil) }
     - elsif @medium.provider.name == 'YouTube'
       %iframe.youtube-player{ type: "text/html", width: "630", height: "385", src: "http://www.youtube.com/embed/#{@medium.provider_media_id}?wmode=transparent", frameborder:"0"}
-  %p 
+  %p.courtesy 
     Courtesy of 
     = link_to @medium.provider.name, @medium.provider.homepage_url
     &rarr;
     = link_to "Original content", content_url_for(@medium)
-%ul.tabs{ "data-tabs" => "tabs" }
-  %li.active= link_to 'Description', '#description'
-  %li= link_to 'Lyrics', '#captions'
-  %li= link_to 'Analysis', '#analysis'
-#media-tab-content.tab-content
+%ul.nav.nav-tabs
+  %li.active= link_to 'Description', '#description', { data: { toggle: "tab" } }
+  - unless @medium.form == 'image'
+    %li
+      = link_to '#captions', { data: { toggle: "tab" } } do
+        - if @medium.form == 'music'
+          Lyrics
+        - else 
+          Captions
+    %li= link_to 'Analysis', '#analysis', { data: { toggle: "tab" } }
+.tab-content
   #description.tab-pane.active
     .description= @medium.description
     %div{:style=>"margin-top:20px;"}
-    %h4 Other information
-    %table.info.zebra-striped
-      %tbody
-        %tr
-          %th Recorded on
-          %td= @medium.recorded_on || "unknown"
-        %tr
-          %th Released on
-          %td= @medium.released_on || "unknown"
-  #captions.tab-pane
-    - if @medium.captions.blank?
-      Sorry, the lyrics have not been added for this #{@medium.form}.
-    - else
-      %pre= @medium.captions
-  #analysis.tab-pane
-    - if @medium.analysis.blank?
-      Sorry, no analysis for this #{@medium.form} has been written yet.
-    - else
-      @medium.analysis
+    %h4 
+      %i.icon-align-justify
+      Other information
+    %div{ style: "margin: 8px 50px;" }
+      %table.table.table-striped
+        %tbody  
+          %tr
+            %th Source
+            %td= link_to @medium.provider.name, content_url_for(@medium)
+          %tr
+            %th 
+              - unless @medium.form == 'image'
+                Recorded on
+              - else
+                Taken on
+            %td= @medium.recorded_on || "unknown"
+          - unless @medium.form == 'image'
+            %tr
+              %th Released on
+              %td= @medium.released_on || "unknown"
+          %tr
+            %th # of views
+            %td= @medium.analytics[:views]
+          %tr
+            %th # of comments
+            %td= @medium.comments.size
+    %h4 
+      %i.icon-tags
+      Tags
+    %ul.inline
+      - ['fun', 'great', 'scary'].each do |tag|
+        %li= link_to tag, "/media/tag/#{tag}"
+  - unless @medium.form == 'image'
+    #captions.tab-pane
+      - if @medium.captions.blank?
+        Sorry, the lyrics have not been added for this #{@medium.form}.
+      - else
+        = markdown_to_html @medium.captions
+    #analysis.tab-pane
+      - if @medium.analysis.blank?
+        Sorry, no analysis for this #{@medium.form} has been written yet.
+      - else
+        @medium.analysis
 %hr
-%h2 Comments
-.comments
-  %p Got something to say? Join the conversation below.
-  .comment
-    %h3 I love it
-    %p I wish I could have come up with something better to say here. This is lame.
-    .author
-      %span.user= link_to '@user', '/profile/user'
-      posted on
-      %span.date Jan 1st
-      at
-      %span.time 4:00pm
-  .comment
-    %h3 What a quality media thing
-    %p I wish I could have come up with something better to say here. This is lame.
-    .author
-      %span.user= link_to '@user2', '/profile/user2'
-      posted on
-      %span.date Jan 1st
-      at
-      %span.time 4:00pm
-  - 1.times do |comment|
-    .comment
-      %h3 This is a very good comment
-      %p I wish I could have come up with something better to say here. This is lame.
-      .author
-        %span.user= link_to '@user', '/profile/user'
-        posted on
-        %span.date Jan 1st
-        at
-        %span.time 4:00pm
+= render 'comments'
 .well
-  = link_to 'Return to all media', media_path, :class => "btn"
-  = link_to "Return to only #{@medium.form} media", media_type_path(@medium.form), :class => "btn"
+  - if can? :update, @medium
+    = link_to edit_medium_path(@medium), class: 'btn' do
+      %i.icon-pencil
+      = "Edit this #{@medium.form}"
+  = link_to media_path, class: "btn" do
+    %i.icon-share-alt
+    Return to all media
+  = link_to media_type_path(@medium.form), class: "btn" do
+    %i.icon-share-alt
+    = "Return to only #{@medium.form} media"

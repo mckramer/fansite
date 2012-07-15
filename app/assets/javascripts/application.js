@@ -1,7 +1,7 @@
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require bootstrap
+//= require_tree .
 
 $(function () {
   $("a[rel*=popover]").popover({
@@ -9,7 +9,8 @@ $(function () {
     delayIn: 50,
     placement: 'bottom'
   });
-  $("[rel*=tooltip]").tooltip({
-    placement: 'bottom'
+  $(document).tooltip({
+    placement: 'right',
+    selector: "[rel*=tooltip], [data-toggle=tooltip]"
   });
 });

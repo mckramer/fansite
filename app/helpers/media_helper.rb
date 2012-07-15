@@ -28,11 +28,14 @@ module MediaHelper
   
   # Used for embedding media
   def source_url_for(media, height = 300, width = 600)
+    puts 'hello'
     url = nil
-    if media.source_url
+    if !media.source_url.blank?
+      puts 'Custom source url'
       # There is a custom url
       url = media.source_url
     elsif media.provider
+      puts 'Looking into provider'
       # Here, the url follows the pattern from the provider
       url = parse_variables_to_url(media.provider.source_url, media.provider_media_id, height, width)
     else
@@ -44,7 +47,7 @@ module MediaHelper
   
   # Generates linked thumbnail to media path
   def thumbnail_for(media, height = 150, width = 185)
-    link_to image_tag(thumbnail_url_for(media, height, width)), media, { class: "thumbnail", rel: "popover", data: { "content" => media.teaser, "original-title" => media.name } }
+    link_to image_tag(thumbnail_url_for(media, height, width)), media, { class: "thumbnail", rel: "popover", data: { "content" => teaser_for(media), "original-title" => media.name } }
   end
   
   # Generates url to thumbnail for a given medium
@@ -77,6 +80,15 @@ module MediaHelper
       url = media.provider.homepage_url
     end
     url
+  end
+
+  # Get teaser text is present otherwise truncate description
+  def teaser_for(media)
+    if media.teaser.blank?
+      truncate( media.description, length: 150 )
+    else
+      media.teaser
+    end
   end
   
   private

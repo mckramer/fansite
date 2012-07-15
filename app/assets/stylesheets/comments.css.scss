@@ -1,0 +1,10 @@
+.comments {
+  .comment {
+  	.actions {
+  	  float: right;
+  	}
+  	&:nth-child(odd) {
+  	  background-color: $grayLighter;
+  	}
+  }
+}
