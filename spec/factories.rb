@@ -1,7 +1,9 @@
 require 'factory_girl'
 
-Factory.define :user do |u|
-  u.name 'Test User'
-  u.email 'user@test.com'
-  u.password 'please'
+FactoryGirl.define do
+  factory :user do
+    name "John"
+    email "john@test.com"
+    password "password"
+  end
 end
