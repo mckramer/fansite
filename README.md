@@ -1,4 +1,5 @@
 # Fansite
+[![Code Climate](https://codeclimate.com/github/mckramer/fansite.png)](https://codeclimate.com/github/mckramer/fansite) [![Coverage Status](https://coveralls.io/repos/mckramer/fansite/badge.png)](https://coveralls.io/r/mckramer/fansite) [![Dependency Status](https://gemnasium.com/mckramer/fansite.png?travis)](https://gemnasium.com/mckramer/fansite) [![Build Status](https://secure.travis-ci.org/mckramer/fansite.png?branch=master)](http://travis-ci.org/mckramer/fansite)
 
 Example of a fan site.  Attempting to provide a base template that can be used for a variety of people and uses by only editing the css, images, and yml files.  It is i18n-compatiable.
 
