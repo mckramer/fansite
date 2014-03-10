@@ -4,16 +4,15 @@
     <%= render 'layouts/head' %>
   </head>
   <body class="display">
-
+    
     <div class="navbar navbar-fixed-top">
       <%= render 'layouts/header' %>
     </div>
-
+    
     <div class="container">
       
       <%= render 'layouts/alerts' %>
       
-      <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1><%= yield :page_title %></h1>
         <p><%= yield :page_tagline %></p>
@@ -21,34 +20,39 @@
           <p><%= link_to 'Learn more »', yield(:page_learnmore_link), class: "btn large" %></p>
         <% end %>
       </div>
-
-      <!-- Example row of columns -->
+      
       <div class="row">
         <div class="span4" style="padding-top: 10px;">
-          <h2><%= @event.name %></h2>
-          <p><%= @event.teaser %></p>
-          <p><%= link_to "View the #{@event.category} »", @event, class: 'btn' %></p>
+          <% if @event %>
+            <h2><%= @event.name %></h2>
+            <p><%= @event.teaser %></p>
+            <p><%= link_to "View the #{@event.category} »", @event, class: 'btn' %></p>
+          <% end %>
         </div>
         <div class="span3 featured">
-          <h2><%= @media.name %></h2>
-          <p><%= @media.teaser %></p>
-          <p><%= link_to t("media.buttons.view."+@media.form)+" »", @media, class: 'btn' %></p>
+          <% if @media %>
+            <h2><%= @media.name %></h2>
+            <p><%= @media.teaser %></p>
+            <p><%= link_to t("media.buttons.view."+@media.form)+" »", @media, class: 'btn' %></p>
+          <% end %>
        </div>
         <div class="span4" style="padding-top: 10px;">
-          <h2><%= @post.title %></h2>
-          <p><%= @post.teaser %></p>
-          <p><%= link_to 'View the interview »', @post, class: 'btn' %></p>
+          <% if @post %>
+            <h2><%= @post.title %></h2>
+            <p><%= @post.teaser %></p>
+            <p><%= link_to 'View the interview »', @post, class: 'btn' %></p>
+          <% end %>
         </div>
       </div>
-
+      
       <footer>
         <%= render 'layouts/footer' %>
       </footer>
       <footer>
         <p>&copy; The Company 2012</p>
       </footer>
-
+      
     </div> <!-- /container -->
-
+    
   </body>
 </html>
