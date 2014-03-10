@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
-source 'http://gemcutter.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.17'
 
 # Database
 gem 'sqlite3'
@@ -19,6 +18,7 @@ gem 'rdiscount'
 
 # Other
 # gem 'earth_tools'
+gem 'figaro'
 gem 'geocoder'
 
 group :assets do
@@ -32,19 +32,14 @@ gem 'jquery-rails'
 
 gem 'bootstrap-sass', '~> 2.0.3.1'
 
-group :development do
-
-end
-
 group :test, :development do
   gem 'rspec-rails'
 end
 
 group :test do
-  # Pretty printed test output
-  # gem 'turn', :require => false
-  # gem 'minitest'
   gem 'cucumber-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  
+  gem 'coveralls', require: false
 end

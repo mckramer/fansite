@@ -5,3 +5,5 @@ db/*.sqlite3
 log/*
 tmp/*
 brakeman.*
+# Ignore application configuration
+/config/application.yml
