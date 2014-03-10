@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Omniauth::Application.load_tasks
+Fansite::Application.load_tasks
