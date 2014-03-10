@@ -17,16 +17,16 @@ ActiveRecord::Schema.define(:version => 20120125180839) do
     t.string   "provider"
     t.string   "uid"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
 
   create_table "blacklists", :force => true do |t|
     t.string   "username"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "blacklists", ["username"], :name => "index_blacklists_on_username", :unique => true
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20120125180839) do
     t.string   "teaser"
     t.text     "description"
     t.string   "category"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.datetime "start_at"
     t.datetime "end_at"
     t.boolean  "all_day"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(:version => 20120125180839) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "media", :force => true do |t|
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20120125180839) do
     t.text     "analysis"
     t.date     "recorded_on"
     t.date     "released_on"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.integer  "media_provider_id"
     t.string   "source_url"
     t.string   "thumbnail_url"
@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(:version => 20120125180839) do
     t.string   "thumbnail_url"
     t.string   "content_url"
     t.string   "homepage_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "posts", :force => true do |t|
@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(:version => 20120125180839) do
     t.string   "subtitle"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "teaser"
   end
 
@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(:version => 20120125180839) do
     t.string   "name"
     t.string   "username"
     t.string   "gender"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.date     "dob"
     t.datetime "last_login"
     t.string   "role"
