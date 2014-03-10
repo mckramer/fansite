@@ -32,6 +32,10 @@ gem 'jquery-rails'
 
 gem 'bootstrap-sass', '~> 2.0.3.1'
 
+group :development do
+  gem 'bullet', '~> 4.8.0'
+end
+
 group :test, :development do
   gem 'rspec-rails'
 end
